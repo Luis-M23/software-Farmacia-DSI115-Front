@@ -3,7 +3,7 @@ import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 import avatar1 from '@images/avatars/avatar-1.png'
 
 const userProfileList = [
-  { type: 'divider' },
+  /*{ type: 'divider' },
   {
     type: 'navItem',
     icon: 'ri-user-line',
@@ -39,7 +39,7 @@ const userProfileList = [
     icon: 'ri-question-line',
     title: 'FAQ',
     href: '#',
-  },
+  },*/
 ]
 
 const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
