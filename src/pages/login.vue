@@ -1,13 +1,9 @@
 <script setup>
-import { useGenerateImageVariant } from '@/@core/composable/useGenerateImageVariant'
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import authV2LoginIllustrationBorderedDark from '@images/pages/auth-v2-login-illustration-bordered-dark.png'
-import authV2LoginIllustrationBorderedLight from '@images/pages/auth-v2-login-illustration-bordered-light.png'
-import authV2LoginIllustrationDark from '@images/pages/auth-v2-login-illustration-dark.png'
-import authV2LoginIllustrationLight from '@images/pages/auth-v2-login-illustration-light.png'
-import authV2LoginMaskDark from '@images/pages/auth-v2-login-mask-dark.png'
-import authV2LoginMaskLight from '@images/pages/auth-v2-login-mask-light.png'
-import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
+import { ref, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { $api } from '@/utils/api' // tu helper de API
+import logonIndex from '@/assets/images/logos/logoIndex.jpeg'
+
 import { themeConfig } from '@themeConfig'
 
 const form = ref({
@@ -15,206 +11,143 @@ const form = ref({
   password: '',
   remember: false,
 })
-const error_exits = ref(null);
-const success_exits = ref(null);
+
+const error_exits = ref(null)
+const success_exits = ref(null)
+const isPasswordVisible = ref(false)
 const route = useRoute()
 const router = useRouter()
 
-const login = async() => {
+const login = async () => {
   try {
-    error_exits.value = null;success_exits.value = null;
-    const resp = await $api('auth/login',{
+    error_exits.value = null
+    success_exits.value = null
+
+    const resp = await $api('auth/login', {
       method: 'POST',
-      body:{
+      body: {
         email: form.value.email,
         password: form.value.password,
       },
-      onResponseError({response}){
-        console.log(response);
-        error_exits.value = response._data.error;
-      }
-    });
+      onResponseError({ response }) {
+        console.log(response)
+        error_exits.value = response._data?.error
+      },
+    })
 
-    console.log(resp);
-    localStorage.setItem("token",resp.access_token);
-    localStorage.setItem("user",JSON.stringify(resp.user));
-    success_exits.value = 1;
+    localStorage.setItem('token', resp.access_token)
+    localStorage.setItem('user', JSON.stringify(resp.user))
+    success_exits.value = 1
+
     await nextTick(() => {
       router.replace(route.query.to ? String(route.query.to) : '/')
     })
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
-definePage({ meta: { layout: 'blank',unauthenticatedOnly: true, } })
-
-const isPasswordVisible = ref(false)
-const authV2LoginMask = useGenerateImageVariant(authV2LoginMaskLight, authV2LoginMaskDark)
-const authV2LoginIllustration = useGenerateImageVariant(authV2LoginIllustrationLight, authV2LoginIllustrationDark, authV2LoginIllustrationBorderedLight, authV2LoginIllustrationBorderedDark, true)
+definePage({ meta: { layout: 'blank', unauthenticatedOnly: true } })
 </script>
 
 <template>
-  <RouterLink to="/">
-    <div class="app-logo auth-logo">
-      <VNodeRenderer :nodes="themeConfig.app.logo" />
-      <h1 class="app-logo-title">
-        {{ themeConfig.app.title }}
-      </h1>
-    </div>
-  </RouterLink>
-
-  <VRow
-    no-gutters
-    class="auth-wrapper"
-  >
-    <VCol
-      md="8"
-      class="d-none d-md-flex align-center justify-center position-relative"
-    >
-      <div class="d-flex align-center justify-center pa-10">
-        <img
-          :src="authV2LoginIllustration"
-          class="auth-illustration w-100"
-          alt="auth-illustration"
-        >
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="text-center mb-6">
+        <img :src="logonIndex" alt="Farmacias La Esperanza" class="login-logo" />
+        <br>
+        <p>Farmacia la Esperanza</p>
+        </br>
       </div>
-      <VImg
-        :src="authV2LoginMask"
-        class="d-none d-md-flex auth-footer-mask"
-        alt="auth-mask"
-      />
-    </VCol>
-    <VCol
-      cols="12"
-      md="4"
-      class="auth-card-v2 d-flex align-center justify-center"
-      style="background-color: rgb(var(--v-theme-surface));"
-    >
-      <VCard
-        flat
-        :max-width="500"
-        class="mt-12 mt-sm-0 pa-5 pa-lg-7"
-      >
-        <VCardText>
-          <h4 class="text-h4 mb-1">
-            <!--Welcome to <span class="text-capitalize">{{ themeConfig.app.title }}! 👋🏻</span>-->
-            Iniciar Sesión
-          </h4>
 
-          <p class="mb-0">
-            Accede a tu cuenta de Farmacias La Esperanza
-          </p>
-        </VCardText>
+      <h3 class="text-center mb-1">Iniciar Sesión</h3>
+      <p class="text-center mb-6 text-muted">
+        Accede a tu cuenta de Farmacias La Esperanza
+      </p>
 
-        <VCardText>
-          <VForm @submit.prevent="login">
-            <VRow>
-              <!-- email -->
-              <VCol cols="12">
-                <VTextField
-                  v-model="form.email"
-                  autofocus
-                  label="Correo Electrónico"
-                  type="email"
-                  placeholder="tu@email.com"
-                />
-              </VCol>
+      <VForm @submit.prevent="login">
+        <VTextField
+          v-model="form.email"
+          label="Correo Electrónico"
+          type="email"
+          placeholder="usuario@laesperanza.shop"
+          class="mb-4"
+          hide-details
+        />
 
-              <!-- password -->
-              <VCol cols="12">
-                <VTextField
-                  v-model="form.password"
-                  label="Contraseña"
-                  placeholder="············"
-                  :type="isPasswordVisible ? 'text' : 'password'"
-                  :append-inner-icon="isPasswordVisible ? 'ri-eye-off-line' : 'ri-eye-line'"
-                  @click:append-inner="isPasswordVisible = !isPasswordVisible"
-                />
+        <VTextField
+          v-model="form.password"
+          label="Contraseña"
+          placeholder="••••••••"
+          :type="isPasswordVisible ? 'text' : 'password'"
+          :append-inner-icon="isPasswordVisible ? 'ri-eye-off-line' : 'ri-eye-line'"
+          @click:append-inner="isPasswordVisible = !isPasswordVisible"
+          hide-details
+        />
 
-                <VAlert
-                  class="my-2"
-                  type="error"
-                  closable
-                  v-if="error_exits"
-                >
-                  No se puede iniciar sesión intente cambiar las credenciales
-                </VAlert>
+        <VAlert
+          v-if="error_exits"
+          type="error"
+          dense
+          class="mt-4"
+        >
+          No se puede iniciar sesión, intente cambiar las credenciales.
+        </VAlert>
 
-                <VAlert
-                  class="my-2"
-                  type="success"
-                  closable
-                  v-if="success_exits"
-                >
-                  Las credenciales son correcta, puede ingresar
-                </VAlert>
+        <VAlert
+          v-if="success_exits"
+          type="success"
+          dense
+          class="mt-4"
+        >
+          Las credenciales son correctas, puede ingresar.
+        </VAlert>
 
-                <!-- remember me checkbox -->
-                <!-- <div class="d-flex align-center justify-space-between flex-wrap my-6 gap-x-2">
-                  <VCheckbox
-                    v-model="form.remember"
-                    label="Remember me"
-                  />
+        <VBtn
+          type="submit"
+          block
+          color="success"
+          class="mt-6"
+        >
+          Iniciar Sesión
+        </VBtn>
+      </VForm>
 
-                  <a
-                    class="text-primary"
-                    href="#"
-                  >
-                    Forgot Password?
-                  </a>
-                </div> -->
-
-                <!-- login button -->
-                <VBtn
-                 class="my-2"
-                  block
-                  type="submit"
-                >
-                  Login
-                </VBtn>
-              </VCol>
-
-              <!-- create account -->
-              <!-- <VCol
-                cols="12"
-                class="text-body-1 text-center"
-              >
-                <span class="d-inline-block">
-                  New on our platform?
-                </span>
-                <a
-                  class="text-primary ms-1 d-inline-block text-body-1"
-                  href="#"
-                >
-                  Create an account
-                </a>
-              </VCol> -->
-
-              <VCol
-                cols="12"
-                class="d-flex align-center"
-              >
-                <VDivider />
-                <span class="mx-4 text-high-emphasis">or</span>
-                <VDivider />
-              </VCol>
-
-              <!-- auth providers -->
-              <VCol
-                cols="12"
-                class="text-center"
-              >
-                <AuthProvider />
-              </VCol>
-            </VRow>
-          </VForm>
-        </VCardText>
-      </VCard>
-    </VCol>
-  </VRow>
+      <!--<p class="text-center mt-6 text-muted">
+        ¿No tienes una cuenta?
+        <RouterLink to="/register" class="text-success fw-bold">
+          Regístrate aquí
+        </RouterLink>
+      </p>-->
+    </div>
+  </div>
 </template>
 
-<style lang="scss">
-@use "@core/scss/template/pages/page-auth.scss";
+<style scoped lang="scss">
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #eaf9ef 0%, #e3f9eb 100%);
+}
+
+.login-card {
+  background-color: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.login-logo {
+  width: 140px;
+  margin: 0 auto;
+  display: block;
+}
+
+.text-muted {
+  color: #6c757d;
+}
 </style>
