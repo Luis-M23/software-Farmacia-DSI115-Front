@@ -16,20 +16,26 @@ However, if you wish to get actual prop types in `.vue` imports (for example to 
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Instala las librerias en la ruta de proyecto
 
 ```sh
-npm install
+pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar y recargar en caliente para el desarrollo
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Crear un .env dentro de la ruta del proyecto y agregale 
 
 ```sh
-npm run build
+VITE_API_BASE_URL=http://localhost:8000/api
+```
+
+### Compilar y recargar en caliente para producción
+
+```sh
+pnpm run build
 ```
