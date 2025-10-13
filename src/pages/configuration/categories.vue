@@ -17,7 +17,7 @@
             key: 'created_at',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -99,12 +99,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🎫 Categorias">
+        <VCard title="Gestión de Categorias">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Categorie"
+                            placeholder="Buscar categoria"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -113,10 +113,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isCategorieAddDialogVisible = !isCategorieAddDialogVisible">
-                            Add Categorie
+                            Nueva Categoria
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-todo-line"
                             />
                         </VBtn>
                     </VCol>

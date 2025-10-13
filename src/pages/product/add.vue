@@ -351,11 +351,8 @@ definePage({ meta: { permission: 'register_product', } });
     <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
       <div class="d-flex flex-column justify-center">
         <h4 class="text-h4 mb-1">
-          💻 Add New Product
+          Agregar Nuevo Producto
         </h4>
-        <p class="text-body-1 mb-0">
-          Orders placed across your store
-        </p>
       </div>
     </div>
 
@@ -371,7 +368,7 @@ definePage({ meta: { permission: 'register_product', } });
                 <VTextField
                   label="Nombre del producto"
                   v-model="product.title"
-                  placeholder="iPhone 14"
+                  placeholder="Acetamifen Tabletas"
                 />
               </VCol>
               <VCol
@@ -460,11 +457,11 @@ definePage({ meta: { permission: 'register_product', } });
         <VCard class="my-6">
           <VCardItem>
             <template #title>
-              Product Image
+              Imagen del Producto
             </template>
             <template #append>
               <h6 class="text-h6 text-primary cursor-pointer">
-                Add Media from URL
+                Agregar Imagen desde una URL
               </h6>
             </template>
           </VCardItem>
@@ -489,7 +486,7 @@ definePage({ meta: { permission: 'register_product', } });
                       <VIcon icon="ri-upload-2-line" />
                     </VAvatar>
                     <h4 class="text-h4 text-wrap">
-                      Drag and Drop Your Image Here.
+                      Arrastre y suelte su imagen aquí
                     </h4>
                     <span class="text-disabled">or</span>
 
@@ -849,18 +846,18 @@ definePage({ meta: { permission: 'register_product', } });
               >
               </VSelect>
 
-              <div>
+              <!--<div>
                 <p class="my-0">¿Regalo?</p>
                 <VCheckbox
                   label="SI"
                   value="2"
                   v-model="product.is_gift"
                 />
-              </div>
+              </div>-->
 
               <div class="d-flex">
                 <div>
-                  <p class="my-0">¿Tiene Descuento?</p>
+                  <p class="my-0">¿Descuento?</p>
                   <VCheckbox
                     label="SI"
                     value="2"

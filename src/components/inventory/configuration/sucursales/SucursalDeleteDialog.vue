@@ -73,7 +73,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Delete Sucursal : {{ props.sucursalSelected.id }}
+            Eliminar Sucursal -> {{ props.sucursalSelected.name }}
           </h4>
         </div>
 
@@ -87,7 +87,7 @@ const dialogVisibleUpdate = val => {
             <VCol
               cols="12"
             >
-              <p>¿Estas seguro de eliminar el SUCURSAL : {{props.sucursalSelected.name}}?</p>
+              <p>¿Esta seguro de eliminar el SUCURSAL : {{props.sucursalSelected.name}}?</p>
             </VCol>
             <VCol
               cols="12"
@@ -139,7 +139,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

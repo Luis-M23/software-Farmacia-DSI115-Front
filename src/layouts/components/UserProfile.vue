@@ -138,7 +138,7 @@ const logout = async() => {
                 append-icon="ri-logout-box-r-line"
                 @click="logout"
               >
-                Logout
+                Salir
               </VBtn>
             </VListItem>
           </PerfectScrollbar>

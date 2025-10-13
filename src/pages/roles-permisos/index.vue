@@ -6,7 +6,7 @@
             key: 'id',
         },
         {
-            title: 'Role',
+            title: 'Rol',
             key: 'name',
         },
         {
@@ -18,7 +18,7 @@
             key: 'permissions_pluck',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -100,12 +100,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🔏 Roles y Permisos">
+        <VCard title="Gestión de Roles y Permisos">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Role"
+                            placeholder="Buscar Rol"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -114,10 +114,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn v-if="isPermission('register_role')" @click="isRoleAddDialogVisible = !isRoleAddDialogVisible">
-                            Add Role
+                            Nuevo Rol
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-fingerprint-line"
                             />
                         </VBtn>
                     </VCol>

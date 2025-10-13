@@ -21,7 +21,7 @@
             key: 'state',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -108,12 +108,12 @@
 </script>
 <template>
     <div>
-        <VCard title="📦 Units">
+        <VCard title="Gestión de Unidades">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Unit"
+                            placeholder="Buscar unidad"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -122,10 +122,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isUnitAddDialogVisible = !isUnitAddDialogVisible">
-                            Add Unit
+                            Nueva Unidad
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-sticky-note-add-line"
                             />
                         </VBtn>
                     </VCol>

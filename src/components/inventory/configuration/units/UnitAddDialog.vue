@@ -97,7 +97,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add Unit
+            Nueva Unidad
           </h4>
         </div>
 
@@ -114,7 +114,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="name"
                 label="Nombre"
-                placeholder="Example: Caja"
+                placeholder="Ejemplo: Caja"
               />
             </VCol>
             <VCol
@@ -158,7 +158,7 @@ const dialogVisibleUpdate = val => {
             >
                 <VTextarea
                     v-model="description"
-                    label="Descripción: "
+                    label="Descripción "
                     placeholder=""
                 />
 
@@ -177,7 +177,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

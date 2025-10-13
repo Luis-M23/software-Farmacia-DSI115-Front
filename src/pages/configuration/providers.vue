@@ -9,11 +9,11 @@
             key: 'full_name',
         },
         {
-            title: 'RUC',
+            title: 'nit',
             key: 'ruc',
         },
         {
-            title: 'Email',
+            title: 'Correo',
             key: 'email',
         },
         {
@@ -29,7 +29,7 @@
             key: 'created_at',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -120,12 +120,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🏤 Providers">
+        <VCard title="Gestión de Proveedores">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Providers"
+                            placeholder="Buscar Proveedor"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -134,10 +134,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isProviderAddDialogVisible = !isProviderAddDialogVisible">
-                            Add Providers
+                            Nuevo Proveedor
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-user-location-line"
                             />
                         </VBtn>
                     </VCol>

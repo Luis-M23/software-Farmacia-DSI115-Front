@@ -18,7 +18,7 @@
         },
         
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -100,12 +100,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🏪 Sucursales">
+        <VCard title="Gestión de Sucursales">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Sucursal"
+                            placeholder="Buscar Sucursal"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -114,10 +114,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isSucursalAddDialogVisible = !isSucursalAddDialogVisible">
-                            Add Sucursal
+                            Nueva Sucursal
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-store-2-line"
                             />
                         </VBtn>
                     </VCol>

@@ -136,7 +136,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add Provider
+            Nuevo Proveedor
           </h4>
         </div>
 
@@ -153,7 +153,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="full_name"
                 label="Nombre del Proveedor"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: nombre del proveedor"
               />
             </VCol>
             
@@ -164,7 +164,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="Example: proveedor@gmail.com"
               />
             </VCol>
 
@@ -175,7 +175,7 @@ const dialogVisibleUpdate = val => {
                 v-model="phone"
                 type="number"
                 label="Telefono"
-                placeholder="Example: 9999999"
+                placeholder="Example: 22222222"
               />
             </VCol>
 
@@ -185,8 +185,8 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="ruc"
                 type="number"
-                label="Ruc"
-                placeholder="Example: 9999999"
+                label="NIT"
+                placeholder="Example: 1111-111111-111-1"
               />
             </VCol>
 

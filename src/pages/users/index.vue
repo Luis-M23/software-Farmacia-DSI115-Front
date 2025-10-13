@@ -143,12 +143,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🧑‍🦱 Usuarios">
+        <VCard title="Lista de Usuarios">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search User"
+                            placeholder="Buscar usuario"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -157,10 +157,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isUserAddDialogVisible = !isUserAddDialogVisible">
-                            Add User
+                            Nuevo Usuario
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-user-add-line"
                             />
                         </VBtn>
                     </VCol>

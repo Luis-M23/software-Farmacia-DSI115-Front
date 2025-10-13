@@ -203,7 +203,7 @@ onMounted(() => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Edit User : {{ props.selectedUser.full_name }}
+            Editar Usuario -> {{ props.selectedUser.full_name }}
           </h4>
         </div>
 
@@ -429,7 +429,7 @@ onMounted(() => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

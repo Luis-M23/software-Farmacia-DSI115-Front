@@ -25,7 +25,7 @@
             key: 'created_at',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -109,12 +109,12 @@
 </script>
 <template>
     <div>
-        <VCard title="🏬 Almacenes">
+        <VCard title="Gestión de Almacenes">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Warehouses"
+                            placeholder="Buscar Almacén"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -123,10 +123,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="isWarehouseAddDialogVisible = !isWarehouseAddDialogVisible">
-                            Add Warehouse
+                            Nuevo Almacén
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-luggage-deposit-line"
                             />
                         </VBtn>
                     </VCol>

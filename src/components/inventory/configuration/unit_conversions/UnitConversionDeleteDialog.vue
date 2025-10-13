@@ -73,7 +73,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Delete Unit Conversion: {{ props.unitConversionSelected.id }}
+            Eliminar Unidad -> {{ props.unitConversionSelected.unit_to.name }}
           </h4>
         </div>
 
@@ -87,7 +87,7 @@ const dialogVisibleUpdate = val => {
             <VCol
               cols="12"
             >
-              <p>¿Estas seguro de eliminar la Unidad a Convertir : {{props.unitConversionSelected.unit_to.name}}?</p>
+              <p>¿Esta seguro de eliminar la Unidad a Convertir : {{props.unitConversionSelected.unit_to.name}}?</p>
             </VCol>
             <VCol
               cols="12"
@@ -139,7 +139,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

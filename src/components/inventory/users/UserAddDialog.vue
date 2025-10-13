@@ -191,7 +191,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add User
+            Agregar Nuevo Usuario
           </h4>
         </div>
 
@@ -208,7 +208,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="name"
                 label="Nombre"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: Jose"
               />
             </VCol>
             <VCol
@@ -217,7 +217,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="surname"
                 label="Apellido"
-                placeholder="Example: Mendoza"
+                placeholder="Ejemplo: Mendoza"
               />
             </VCol>
 
@@ -227,7 +227,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="ejemplo: nombre@gmail.com"
               />
             </VCol>
 
@@ -238,7 +238,7 @@ const dialogVisibleUpdate = val => {
                 v-model="phone"
                 type="number"
                 label="Telefono"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -248,14 +248,15 @@ const dialogVisibleUpdate = val => {
             >
                 <VSelect
                     :items="[
-                        'DNI',
+                        'DUI',
+                        'PANISAPORTE',
                         'PASAPORTE',
                         'CARNET DE EXTRANJERIA',
                         'TARJETA MILITAR'
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar documento"
                     eager
                 />
             </VCol>
@@ -317,7 +318,7 @@ const dialogVisibleUpdate = val => {
             <VCol
               cols="6"
             >
-                <VFileInput label="Avatar" @change="loadFile($event)" />
+                <VFileInput label="Foto" @change="loadFile($event)" />
 
                 <VImg
                     v-if="IMAGEN_PREVIZUALIZA"
@@ -394,7 +395,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

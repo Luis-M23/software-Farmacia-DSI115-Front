@@ -145,7 +145,7 @@ onMounted(() => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Edit Provider: {{ props.providerSelected.full_name }}
+            Editar Proveedor -> {{ props.providerSelected.full_name }}
           </h4>
         </div>
 
@@ -194,7 +194,7 @@ onMounted(() => {
               <VTextField
                 v-model="ruc"
                 type="number"
-                label="Ruc"
+                label="NIT"
                 placeholder="Example: 9999999"
               />
             </VCol>
@@ -302,7 +302,7 @@ onMounted(() => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

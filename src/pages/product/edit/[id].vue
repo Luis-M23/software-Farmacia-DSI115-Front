@@ -487,7 +487,7 @@ definePage({ meta: { permission: 'edit_product', } });
                 <VTextField
                   label="Nombre del producto"
                   v-model="product.title"
-                  placeholder="iPhone 14"
+                  placeholder="Acetamifen Tabletas"
                 />
               </VCol>
               <VCol
@@ -576,11 +576,11 @@ definePage({ meta: { permission: 'edit_product', } });
         <VCard class="my-6">
           <VCardItem>
             <template #title>
-              Product Image
+              Imagen del Producto
             </template>
             <template #append>
               <h6 class="text-h6 text-primary cursor-pointer">
-                Add Media from URL
+                Agregar Imagen desde una URL
               </h6>
             </template>
           </VCardItem>
@@ -605,7 +605,7 @@ definePage({ meta: { permission: 'edit_product', } });
                       <VIcon icon="ri-upload-2-line" />
                     </VAvatar>
                     <h4 class="text-h4 text-wrap">
-                      Drag and Drop Your Image Here 2.
+                      Arrastre y suelte su imagen aquí 2.
                     </h4>
                     <span class="text-disabled">or</span>
 
@@ -613,7 +613,7 @@ definePage({ meta: { permission: 'edit_product', } });
                       variant="outlined"
                       size="small"
                     >
-                      Browse Images
+                      Buscar Imagen
                     </VBtn>
                   </div>
 

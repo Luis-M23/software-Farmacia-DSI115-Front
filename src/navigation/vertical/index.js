@@ -3,24 +3,24 @@ export default [
     title: 'Dashboard',
     to: { name: 'dashboard' },
     permission: "all",
-    icon: { icon: 'ri-pie-chart-box-line' },
+    icon: { icon: 'ri-bar-chart-fill' },
   },
   { heading: 'Accesos',permissions: ['list_role','list_user','settings'] },
   {
     title: 'Roles y Permisos',
     to: { name: 'roles-permisos' },
     permission: 'list_role',
-    icon: { icon: 'ri-lock-password-line' },
+    icon: { icon: 'ri-git-repository-private-line' },
   },
   {
     title: 'Usuarios',
     to: { name: 'users' },
     permission: 'list_user',
-    icon: { icon: 'ri-group-line' },
+    icon: { icon: 'ri-group-3-line' },
   },
   {
     title: 'Configuraciones',
-    icon: { icon: 'ri-tools-line' },
+    icon: { icon: 'ri-list-settings-line' },
     children: [
       {
         title: 'Sucursales',
@@ -75,13 +75,13 @@ export default [
   },
   {
     title: 'Clientes',
-    icon: { icon: 'ri-p2p-line' },
+    icon: { icon: 'ri-team-line' },
     permission: 'list_client',
     to: 'client-list',
   },
   {
     title: 'Ventas',
-    icon: { icon: 'ri-money-dollar-box-line' },
+    icon: { icon: 'ri-exchange-dollar-line' },
     children: [
       {
         title: 'Registrar',
@@ -106,7 +106,7 @@ export default [
   { heading: 'Almacen',permissions: ['register_purchase','list_purchase','register_transport','list_transport','conversions','kardex'] },
   {
     title: 'Compras',
-    icon: { icon: 'ri-box-3-line' },
+    icon: { icon: 'ri-shopping-cart-line' },
     children: [
       {
         title: 'Registrar',

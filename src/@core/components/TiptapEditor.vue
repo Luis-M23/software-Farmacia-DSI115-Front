@@ -29,7 +29,7 @@ const editor = useEditor({
         'paragraph',
       ],
     }),
-    Placeholder.configure({ placeholder: 'Write something here...' }),
+    Placeholder.configure({ placeholder: 'Escriba la descripción del producto...' }),
     Underline,
   ],
   onUpdate() {
