@@ -68,7 +68,7 @@ const store = async() => {
     }, 50);
     return;
   }
-  if(!ubigeo_region.value){
+  /*if(!ubigeo_region.value){
     setTimeout(() => {
       warning.value = "Se debe seleccionar una region de la empresa";
     }, 50);
@@ -85,7 +85,7 @@ const store = async() => {
       warning.value = "Se debe debe seleccionar un distrito de la empresa";
     }, 50);
     return;
-  }
+  }*/
   if(!address.value){
     setTimeout(() => {
       warning.value = "Se debe debe una dirección de la empresa";
@@ -141,7 +141,7 @@ const store = async() => {
       full_name.value = '';
       email.value = '';
       phone.value = '';
-      type_document.value = 'RUC';
+      type_document.value = 'NIT';
       n_document.value = '';
       address.value = '';
       ubigeo_region.value = '';
@@ -201,7 +201,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add Client Company
+            Agregar Cliente Empresa
           </h4>
         </div>
 
@@ -218,7 +218,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="full_name"
                 label="Nombre de la Empresa"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: Distribuidora S.A"
               />
             </VCol>
             
@@ -246,7 +246,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="Ejemplo: empresa@gmail.com"
               />
             </VCol>
 
@@ -257,7 +257,7 @@ const dialogVisibleUpdate = val => {
                 v-model="phone"
                 type="number"
                 label="Telefono"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -266,12 +266,12 @@ const dialogVisibleUpdate = val => {
             >
                 <VSelect
                     :items="[
-                        'RUC',
-                        'RUC 20',
+                        'NIT',
+                        /*'RUC 20',*/
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar documento"
                     eager
                 />
             </VCol>
@@ -283,7 +283,7 @@ const dialogVisibleUpdate = val => {
                 v-model="n_document"
                 type="number"
                 label="N° Document"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -320,7 +320,7 @@ const dialogVisibleUpdate = val => {
             <VCol
               cols="6"
             ></VCol>
-            <VCol
+            <!--<VCol
               cols="4"
             >
                 <VSelect
@@ -358,7 +358,7 @@ const dialogVisibleUpdate = val => {
                     placeholder="Select Item"
                     eager
                 />
-            </VCol>
+            </VCol>-->
             
 
             <VCol
@@ -416,7 +416,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

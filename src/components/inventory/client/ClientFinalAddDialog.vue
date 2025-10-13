@@ -77,7 +77,7 @@ const store = async() => {
     }, 50);
     return;
   }
-  if(!ubigeo_region.value){
+  /*if(!ubigeo_region.value){
     setTimeout(() => {
       warning.value = "Se debe seleccionar una region para el cliente";
     }, 50);
@@ -94,7 +94,7 @@ const store = async() => {
       warning.value = "Se debe debe seleccionar un distrito para el cliente";
     }, 50);
     return;
-  }
+  }*/
   if(!address.value){
     setTimeout(() => {
       warning.value = "Se debe debe una dirección para el cliente";
@@ -216,7 +216,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add Client Final
+            Agregar Cliente Final
           </h4>
         </div>
 
@@ -233,7 +233,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="name"
                 label="Nombre del Cliente"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: Jose"
               />
             </VCol>
 
@@ -243,7 +243,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="surname"
                 label="Apellido del Cliente"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: Ramirez"
               />
             </VCol>
             
@@ -271,7 +271,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="Ejemplo: usuario@gmail.com"
               />
             </VCol>
 
@@ -282,7 +282,7 @@ const dialogVisibleUpdate = val => {
                 v-model="phone"
                 type="number"
                 label="Telefono"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 99999999"
               />
             </VCol>
 
@@ -298,7 +298,7 @@ const dialogVisibleUpdate = val => {
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar documento"
                     eager
                 />
             </VCol>
@@ -310,7 +310,7 @@ const dialogVisibleUpdate = val => {
                 v-model="n_document"
                 type="number"
                 label="N° Document"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 111111111"
               />
             </VCol>
 
@@ -354,13 +354,13 @@ const dialogVisibleUpdate = val => {
             >
                 <VTextarea
                     v-model="address"
-                    label="Dirección: "
+                    label="Dirección "
                     placeholder=""
                 />
 
             </VCol>
 
-            <VCol
+            <!--<VCol
               cols="4"
             >
                 <VSelect
@@ -368,8 +368,8 @@ const dialogVisibleUpdate = val => {
                     v-model="ubigeo_region"
                     item-title="name"
                     item-value="id"
-                    label="Region"
-                    placeholder="Select Item"
+                    label="Departamentos"
+                    placeholder="Seleccionar departamento"
                     eager
                 />
             </VCol>
@@ -381,8 +381,8 @@ const dialogVisibleUpdate = val => {
                     v-model="ubigeo_provincia"
                     item-title="name"
                     item-value="id"
-                    label="Provincia"
-                    placeholder="Select Item"
+                    label="Municipio"
+                    placeholder="Seleccionar municipio"
                     eager
                 />
             </VCol>
@@ -398,7 +398,7 @@ const dialogVisibleUpdate = val => {
                     placeholder="Select Item"
                     eager
                 />
-            </VCol>
+            </VCol>-->
             
 
             <VCol
@@ -456,7 +456,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

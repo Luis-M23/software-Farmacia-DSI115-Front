@@ -29,7 +29,7 @@
             key: 'phone',
         },
         {
-            title: 'Ubigeo',
+            title: 'Dirección',
             key: 'region',
         },
         {
@@ -37,7 +37,7 @@
             key: 'state',
         },
         {
-            title: 'Action',
+            title: 'Acciones',
             key: 'action',
         },
     ]
@@ -143,12 +143,12 @@
 </script>
 <template>
     <div>
-        <VCard title="💁‍♂️ Clientes">
+        <VCard title="Gestión de Clientes">
             <VCardText>
                 <VRow class="justify-space-between">
                     <VCol cols="3">
                         <VTextField
-                            placeholder="Search Clients"
+                            placeholder="Buscar Cliente"
                             density="compact"
                             class="me-3"
                             v-model="searchQuery"
@@ -159,19 +159,19 @@
                         <VRow>
                             <VCol cols="6" class="text-end">
                                 <VBtn  v-if="isPermission('register_client')" @click="isClientFinalAddDialogVisible = !isClientFinalAddDialogVisible">
-                                    Add Client Final
+                                    Cliente Final
                                     <VIcon
                                         end
-                                        icon="ri-add-line"
+                                        icon="ri-walk-line"
                                     />
                                 </VBtn>
                             </VCol>
                             <VCol cols="6" class="text-end">
                                 <VBtn  v-if="isPermission('register_client')" @click="isClientCompanyAddDialogVisible = !isClientCompanyAddDialogVisible">
-                                    Add Client Company
+                                    Cliente Empresa
                                     <VIcon
                                         end
-                                        icon="ri-add-line"
+                                        icon="ri-community-line"
                                     />
                                 </VBtn>
                             </VCol>
@@ -215,7 +215,8 @@
                         {{ client.phone }}
                     </td>
                     <td>
-                        {{ client.region }} / {{ client.provincia }} / {{ client.distrito }}
+                        <!--{{ client.region }} / {{ client.provincia }} / {{ client.distrito }}-->
+                        {{ client.address }}
                     </td>
                     <td>
                         <VChip color="primary" v-if="client.state == 1">

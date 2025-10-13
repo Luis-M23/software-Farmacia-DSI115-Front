@@ -163,13 +163,13 @@
             title: 'Venta',
             // desc: 'A simple start for everyone.',
             value: '1',
-            icon: 'ri-shopping-cart-line',
+            icon: 'ri-shopping-cart-2-fill',
         },
         {
             title: 'Cotización',
             // desc: 'For small to medium businesses.',
             value: '2',
-            icon: 'ri-file-list-line',
+            icon: 'ri-file-list-3-fill',
         },
     ]
 
@@ -515,10 +515,10 @@
         <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
             <div class="d-flex flex-column justify-center">
                 <h4 class="text-h4 mb-1">
-                    🛍️ Add New Sale/Cotización
+                    Gestión de Ventas o Cotización
                 </h4>
                 <p class="text-body-1 mb-0">
-                    Orders placed across your store
+                    Pedidos realizados en la tienda
                 </p>
             </div>
         </div>
@@ -541,7 +541,7 @@
                         <AppDateTimePicker
                             v-model="date_emision"
                             label="Fecha de Emision"
-                            placeholder="Select date"
+                            placeholder="Seleccionar Fecha"
                         />
                     </VCol>
                     <VCol cols="3">
@@ -549,7 +549,7 @@
                             :items="warehouses"
                             item-title="name"
                             item-value="id"
-                            placeholder="Select"
+                            placeholder="Seleccionar"
                             v-model="warehouse_id"
                             label="Almacenes"
                         />

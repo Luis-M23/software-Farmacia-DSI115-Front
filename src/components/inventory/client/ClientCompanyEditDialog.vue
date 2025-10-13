@@ -21,7 +21,7 @@ const emit = defineEmits([
 const full_name = ref(null);
 const email  = ref(null);
 const phone  = ref(null);
-const type_document  = ref('RUC');
+const type_document  = ref('NIT');
 const n_document  = ref(null);
 const address  = ref(null);
 const type_client = ref(2);
@@ -73,7 +73,7 @@ const update = async() => {
     }, 50);
     return;
   }
-  if(!ubigeo_region.value){
+  /*if(!ubigeo_region.value){
     setTimeout(() => {
       warning.value = "Se debe seleccionar una region de la empresa";
     }, 50);
@@ -90,7 +90,7 @@ const update = async() => {
       warning.value = "Se debe debe seleccionar un distrito de la empresa";
     }, 50);
     return;
-  }
+  }*/
   if(!address.value){
     setTimeout(() => {
       warning.value = "Se debe debe una dirección de la empresa";
@@ -145,6 +145,12 @@ const update = async() => {
       emit("editClient",resp.client);
       warning.value = null;
       error_exits.value = null;
+
+      // Espera 0.5 segundos, luego cierra el modal automáticamente
+      setTimeout(() => {
+        emit('update:isDialogVisible', false)
+        success.value = null
+      }, 500);
     }
   } catch (error) {
     console.log(error);
@@ -206,7 +212,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Edit Client Company : {{ props.clientSelected.id }}
+            Editar Cliente -> {{ props.clientSelected.full_name}}
           </h4>
         </div>
 
@@ -218,12 +224,12 @@ const dialogVisibleUpdate = val => {
           <VRow>
             <!-- 👉 First Name -->
             <VCol
-              cols="10"
+              cols="12"
             >
               <VTextField
                 v-model="full_name"
                 label="Nombre de la Empresa"
-                placeholder="Example: Jose"
+                placeholder="Ejemplo: Jose"
               />
             </VCol>
             
@@ -251,7 +257,7 @@ const dialogVisibleUpdate = val => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="Ejemplo: empresa@gmail.com"
               />
             </VCol>
 
@@ -262,7 +268,7 @@ const dialogVisibleUpdate = val => {
                 v-model="phone"
                 type="number"
                 label="Telefono"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -271,12 +277,12 @@ const dialogVisibleUpdate = val => {
             >
                 <VSelect
                     :items="[
-                        'RUC',
-                        'RUC 20',
+                        'NIT',
+                        /*'RUC 20',*/
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar"
                     eager
                 />
             </VCol>
@@ -288,7 +294,7 @@ const dialogVisibleUpdate = val => {
                 v-model="n_document"
                 type="number"
                 label="N° Document"
-                placeholder="Example: 9999999"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -323,7 +329,7 @@ const dialogVisibleUpdate = val => {
 
             </VCol>
             <VCol
-              cols="3"
+              cols="6"
             >
                 <VSelect
                     :items="[
@@ -340,11 +346,11 @@ const dialogVisibleUpdate = val => {
                     item-value="id"
                     v-model="state"
                     label="Estado"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar"
                     eager
                 />
             </VCol>
-            <VCol
+            <!--<VCol
               cols="4"
             >
                 <VSelect
@@ -382,8 +388,7 @@ const dialogVisibleUpdate = val => {
                     placeholder="Select Item"
                     eager
                 />
-            </VCol>
-            
+            </VCol>-->            
 
             <VCol
               cols="12"
@@ -440,7 +445,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

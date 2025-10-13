@@ -229,7 +229,7 @@ onMounted(() => {
               <VTextField
                 v-model="surname"
                 label="Apellido"
-                placeholder="Example: Mendoza"
+                placeholder="Ejemplo: Mendoza"
               />
             </VCol>
 
@@ -239,7 +239,7 @@ onMounted(() => {
               <VTextField
                 v-model="email"
                 label="Correo"
-                placeholder="Example: laravest@gmail.com"
+                placeholder="Ejemplo: usuario@gmail.com"
               />
             </VCol>
 
@@ -267,7 +267,7 @@ onMounted(() => {
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar"
                     eager
                 />
             </VCol>
@@ -278,8 +278,8 @@ onMounted(() => {
               <VTextField
                 v-model="n_document"
                 type="number"
-                label="N° de documento"
-                placeholder="Example: 9999999"
+                label="N° documento"
+                placeholder="Ejemplo: 9999999"
               />
             </VCol>
 
@@ -292,7 +292,7 @@ onMounted(() => {
                     item-value="id"
                     v-model="role_id"
                     label="Rol"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar"
                     eager
                 />
             </VCol>
@@ -306,7 +306,7 @@ onMounted(() => {
                     item-value="id"
                     v-model="sucursale_id"
                     label="Sucursal"
-                    placeholder="Select Item"
+                    placeholder="Seleccionar"
                     eager
                 />
             </VCol>
