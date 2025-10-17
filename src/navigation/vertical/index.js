@@ -13,7 +13,7 @@ export default [
     icon: { icon: 'ri-git-repository-private-line' },
   },
   {
-    title: 'Usuarios',
+    title: 'Empleados',
     to: { name: 'users' },
     permission: 'list_user',
     icon: { icon: 'ri-group-3-line' },
