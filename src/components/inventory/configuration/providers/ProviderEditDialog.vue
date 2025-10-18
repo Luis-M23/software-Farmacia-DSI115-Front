@@ -13,7 +13,8 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'editProvider'
+  'editProvider',
+  "close",
 ])
 const full_name = ref(null);
 const email  = ref(null);
@@ -75,16 +76,19 @@ const update = async() => {
       }
     })
     console.log(resp);
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
+    } else {
       success.value = "El proveedor se ha editado correctamente";
-      emit("editProvider",resp.provider);
-      FILE_IMAGEN.value = null;
+      emit("editSucursal", resp.sucursal);
       warning.value = null;
       error_exits.value = null;
-        //   success.value = null;
-        //   onFormReset();
+
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
   } catch (error) {
     console.log(error);

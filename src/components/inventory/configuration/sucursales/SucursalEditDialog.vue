@@ -13,7 +13,8 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'editSucursal'
+  'editSucursal',
+  "close",
 ])
 const name = ref(null);
 const address = ref(null);
@@ -54,16 +55,22 @@ const store = async() => {
       }
     })
     console.log(resp);
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
-      success.value = "La sucursal se ha EDITADO correctamente";
-      emit("editSucursal",resp.sucursal);
+    } else {
+      success.value = "La sucursal se ha editado correctamente";
+      emit("editSucursal", resp.sucursal);
       warning.value = null;
       error_exits.value = null;
-      // success.value = null;
-      // onFormReset();
+
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
+
+
   } catch (error) {
     console.log(error);
   }

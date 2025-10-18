@@ -54,7 +54,7 @@ export default [
       },
     ],
   },
-  { heading: 'Comercial',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
+  { heading: 'producto/cliente',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
   {
     title: 'Productos',
     icon: { icon: 'ri-product-hunt-line' },

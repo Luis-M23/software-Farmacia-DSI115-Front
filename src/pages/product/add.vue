@@ -4,9 +4,11 @@ import {
   useFileDialog,
   useObjectUrl,
 } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 const dropZoneRef = ref()
 const fileData = ref([])
 const { open, onChange } = useFileDialog({ accept: 'image/*',multiple:false })
+const router = useRouter()
 function onDrop(DroppedFiles) {
   DroppedFiles?.forEach(file => {
     if (file.type.slice(0, 6) !== 'image/') {
@@ -304,15 +306,17 @@ const store = async() => {
     })
     console.log(resp);
 
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
-      success.value = "El producto se ha registrado correctamente";
-      resetForm();
-      // FALTA LIMPIAR LOS CAMPOS
+    } else {
+      success.value = "El producto se ha guarado correctamente";
       warning.value = null;
       error_exits.value = null;
-      
+
+      // Esperar un momento para mostrar el mensaje y luego redirigir
+      setTimeout(() => {
+        router.push({ name: 'product-list' }) // Cambia el name por el de tu ruta de lista de productos
+      }, 1000)
     }
   } catch (error) {
     console.log(error)
@@ -458,11 +462,6 @@ definePage({ meta: { permission: 'register_product', } });
           <VCardItem>
             <template #title>
               Imagen del Producto
-            </template>
-            <template #append>
-              <h6 class="text-h6 text-primary cursor-pointer">
-                Agregar Imagen desde una URL
-              </h6>
             </template>
           </VCardItem>
 

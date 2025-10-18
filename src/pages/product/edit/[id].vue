@@ -4,9 +4,11 @@ import {
   useFileDialog,
   useObjectUrl,
 } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 const dropZoneRef = ref()
 const fileData = ref([])
 const { open, onChange } = useFileDialog({ accept: 'image/*',multiple:false })
+const router = useRouter()
 function onDrop(DroppedFiles) {
   DroppedFiles?.forEach(file => {
     if (file.type.slice(0, 6) !== 'image/') {
@@ -285,7 +287,7 @@ const update = async() => {
     }
     if(!product.value.sku){
       setTimeout(() => {
-        warning.value = "Es requerido ingresar el sku del producto";
+        warning.value = "Es requerido ingresar el SKU del producto";
       }, 15);
       return;
     }
@@ -384,16 +386,19 @@ const update = async() => {
     })
     console.log(resp);
 
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
+    } else {
       success.value = "El producto se ha editado correctamente";
-        //   resetForm();
-      // FALTA LIMPIAR LOS CAMPOS
       warning.value = null;
       error_exits.value = null;
-      
+
+      // Esperar un momento para mostrar el mensaje y luego redirigir
+      setTimeout(() => {
+        router.push({ name: 'product-list' }) // Cambia el name por el de tu ruta de lista de productos
+      }, 1000)
     }
+
   } catch (error) {
     console.log(error)
   }
@@ -467,11 +472,8 @@ definePage({ meta: { permission: 'edit_product', } });
     <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
       <div class="d-flex flex-column justify-center">
         <h4 class="text-h4 mb-1">
-          💻 Edit Product : {{ route.params.id }}
+          Editar Producto : {{ route.params.id }}
         </h4>
-        <p class="text-body-1 mb-0">
-          Orders placed across your update
-        </p>
       </div>
     </div>
 
@@ -495,7 +497,7 @@ definePage({ meta: { permission: 'edit_product', } });
                 md="4"
               >
                 <VTextField
-                  label="Sku: "
+                  label="SKU: "
                   v-model="product.sku"
                   placeholder="FXSK123U"
                 />
@@ -505,9 +507,9 @@ definePage({ meta: { permission: 'edit_product', } });
                 md="4"
               >
                 <VTextField
-                  label="Precio (Cliente Final):"
+                  label="Precio cliente:"
                   v-model="product.price_general"
-                  placeholder="S/. 50"
+                  placeholder="$. 50"
                 />
               </VCol>
               <VCol
@@ -515,9 +517,9 @@ definePage({ meta: { permission: 'edit_product', } });
                 md="4"
               >
                 <VTextField
-                  label="Precio (Cliente Empresa):"
+                  label="Precio empresa:"
                   v-model="product.price_company"
-                  placeholder="S/. 100"
+                  placeholder="$. 100"
                 />
               </VCol>
               <VCol>
@@ -577,11 +579,6 @@ definePage({ meta: { permission: 'edit_product', } });
           <VCardItem>
             <template #title>
               Imagen del Producto
-            </template>
-            <template #append>
-              <h6 class="text-h6 text-primary cursor-pointer">
-                Agregar Imagen desde una URL
-              </h6>
             </template>
           </VCardItem>
 
@@ -989,16 +986,6 @@ definePage({ meta: { permission: 'edit_product', } });
                 v-model="product.product_categorie_id"
               >
               </VSelect>
-
-              <div>
-                <p class="my-0">¿Regalo?</p>
-                <VCheckbox
-                  label="SI"
-                  value="2"
-                  v-model="product.is_gift"
-                />
-              </div>
-
               <div class="d-flex">
                 <div>
                   <p class="my-0">¿Tiene Descuento?</p>

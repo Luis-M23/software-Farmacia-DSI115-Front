@@ -13,7 +13,8 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'editRole'
+  'editRole',
+  "close",
 ])
 const name = ref(null);
 console.log(PERMISOS);
@@ -63,16 +64,19 @@ const update = async() => {
       }
     })
     console.log(resp);
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
-      success.value = "El rol se ha EDITADO correctamente";
-      emit("editRole",resp.role);
-        //   name.value = '';
-        //   permissions.value = [];
+    } else {
+      success.value = "El rol se ha editado correctamente";
+      emit("editSucursal", resp.sucursal);
       warning.value = null;
       error_exits.value = null;
-        //   onFormReset();
+
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
   } catch (error) {
     console.log(error);

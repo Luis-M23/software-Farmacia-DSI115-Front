@@ -17,7 +17,8 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'editWarehouse'
+  'editWarehouse',
+  "close",
 ])
 const name = ref(null);
 const address = ref(null);
@@ -66,15 +67,19 @@ const update = async() => {
       }
     })
     console.log(resp);
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
-      success.value = "El almacen se ha editado correctamente";
-      emit("editWarehouse",resp.warehouse);
+    } else {
+      success.value = "El Almacen se ha editado correctamente";
+      emit("editSucursal", resp.sucursal);
       warning.value = null;
       error_exits.value = null;
-    //   success.value = null;
-    //   onFormReset();
+
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
   } catch (error) {
     console.log(error);
