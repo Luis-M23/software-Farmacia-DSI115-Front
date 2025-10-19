@@ -131,14 +131,14 @@
 </script>
 <template>
     <div>
-        <VCard title="🗃️ Purchases">
+        <VCard title="Gestión de Compras">
             <VCardText>
                 <VRow class="">
                     <VCol cols="10">
                         <VRow>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search N° Purchase"
+                                    placeholder="Buscar número de compra"
                                     density="compact"
                                     class="me-3"
                                     v-model="searchQuery"
@@ -183,10 +183,9 @@
                                 <VSelect
                                     :items="[
                                         'FACTURA ELECTRÓNICA',
+                                        'CRÉDITO FISCAL',
                                         'NOTA DE CREDITO',
-                                        'NOTA DE DEBITO',
-                                        'RECIBO POR HONARIOS',
-                                        'GUIA DE REMISIÓN'
+                                        'NOTA DE DEBITO'
                                     ]"
                                     v-model="type_comprobant"
                                     label="Tipo de Comprobantes"
@@ -204,7 +203,7 @@
                             </VCol>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search Product"
+                                    placeholder="Buscar Producto"
                                     density="compact"
                                     class="me-3"
                                     v-model="search_product"
@@ -243,10 +242,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn v-if="isPermission('register_purchase')" @click="router.push({name: 'purchase-add'})">
-                            Add Purchase
+                            Nueva Compra
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-shopping-cart-2-line"
                             />
                         </VBtn>
                     </VCol>
@@ -277,10 +276,10 @@
                     </th>
 
                     <th class="text-uppercase">
-                        Estado de E.
+                        Estado
                     </th>
                     <th class="text-uppercase">
-                        Action
+                        Acciones
                     </th>
                 </tr>
                </thead>

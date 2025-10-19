@@ -145,7 +145,7 @@
 </script>
 <template>
     <div>
-        <VCard title="🛍️  Ventas/Cotización">
+        <VCard title="ventas o cotizaciones">
             <VCardText>
                 <VRow class="">
                     <VCol cols="10">
@@ -184,7 +184,7 @@
                             <VCol cols="3">
                                 <VTextField
                                     label="Cliente"
-                                    placeholder="Search"
+                                    placeholder="Buscar Cliente"
                                     class="me-3"
                                     v-model="search_client"
                                     @keyup.enter="list"
@@ -284,10 +284,10 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn v-if="isPermission('register_sale')" @click="router.push({name: 'sales-add'})">
-                            Add Sale
+                            Nueva compra
                             <VIcon
                                 end
-                                icon="ri-add-line"
+                                icon="ri-shopping-cart-2-line"
                             />
                         </VBtn>
 
@@ -356,7 +356,7 @@
                         Total
                     </th>
                     <th class="text-uppercase">
-                        Deuda/Pagado
+                        Pagado
                     </th>
                     <th class="text-uppercase">
                        Tipo
@@ -395,10 +395,10 @@
                         {{ item.user.full_name }}
                     </td>
                     <td style="text-wrap-mode: nowrap;">
-                       S/. {{ item.total }}
+                       $. {{ item.total }}
                     </td>
                     <td style="text-wrap-mode: nowrap;">
-                        S/. {{ item.debt }} / S/. {{ item.paid_out }}
+                        $. {{ item.debt }}
                     </td>
                     <td>
                         {{ item.state_sale == 1 ? 'VENTA' : 'COTIZACIÓN' }}

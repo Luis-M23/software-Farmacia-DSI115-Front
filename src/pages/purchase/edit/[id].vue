@@ -331,11 +331,8 @@
         <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
             <div class="d-flex flex-column justify-center">
                 <h4 class="text-h4 mb-1">
-                    🗃️ Edit Purchase : #{{ route.params.id }}
+                    Editar Compra : N° {{ route.params.id }}
                 </h4>
-                <p class="text-body-1 mb-0">
-                Orders placed across your store
-                </p>
             </div>
         </div>
 
@@ -401,9 +398,7 @@
                                     :items="[
                                         'FACTURA ELECTRÓNICA',
                                         'NOTA DE CREDITO',
-                                        'NOTA DE DEBITO',
-                                        'RECIBO POR HONARIOS',
-                                        'GUIA DE REMISIÓN'
+                                        'NOTA DE DEBITO'
                                     ]"
                                     v-model="type_comprobant"
                                     label="Tipo de Comprobantes"
@@ -466,8 +461,8 @@
                                             item-title="title"
                                             item-value="id"
                                             return-object
-                                            placeholder="Search for a product"
-                                            label="¿Que agregamos?"
+                                            placeholder="Buscar producto por nombre"
+                                            label="¿Que desea agregar?"
                                             variant="underlined"
                                             :menu-props="{ maxHeight: '200px' }"
                                         />
@@ -586,9 +581,9 @@
                                 </td>
                                 <td>{{ purchase_detail.product.title }}</td>
                                 <td>{{ purchase_detail.unit.name }}</td>
-                                <td>S/. {{ purchase_detail.price_unit }}</td>
+                                <td>$. {{ purchase_detail.price_unit }}</td>
                                 <td>{{ purchase_detail.quantity }}</td>
-                                <td>S/. {{ purchase_detail.total }}</td>
+                                <td>$. {{ purchase_detail.total }}</td>
                                 <td class="d-flex align-center"> 
                                     <IconBtn
                                         size="small"
@@ -619,7 +614,7 @@
                                 </td>
                                 <td>
                                     <VTextField
-                                        label="Igv"
+                                        label="iva"
                                         placeholder=""
                                         type="number"
                                         v-model="igv"

@@ -295,7 +295,7 @@
             let MAX_DISCOUNT = select_product.value.max_discount*0.01 * Number(price_unit.value);//EL DESCUENTO MAXIMO
             if(MAX_DISCOUNT < Number(discount.value)){
                 setTimeout(() => {
-                    warning_warehouse.value = "El descuento maximo del producto es : S/." + MAX_DISCOUNT;
+                    warning_warehouse.value = "El descuento maximo del producto es : $." + MAX_DISCOUNT;
                 }, 25);
                 return;
             }
@@ -748,22 +748,22 @@
                                         {{ sale_detail.unit.name }}
                                     </td>
                                     <td style="white-space: nowrap;">
-                                       S/. {{ sale_detail.price }}
+                                       $. {{ sale_detail.price }}
                                     </td>
                                     <td>
                                         {{ sale_detail.quantity }}
                                     </td>
                                     <td style="white-space: nowrap;">
-                                       S/. {{ sale_detail.discount }}
+                                       $. {{ sale_detail.discount }}
                                     </td>
                                     <td style="white-space: nowrap;">
-                                        S/. {{ sale_detail.igv }}
+                                        $. {{ sale_detail.igv }}
                                     </td>
                                     <td style="white-space: nowrap;">
-                                        S/. {{ sale_detail.subtotal }}
+                                        $. {{ sale_detail.subtotal }}
                                     </td>
                                     <td style="white-space: nowrap;">
-                                        S/. {{ sale_detail.total }}
+                                        $. {{ sale_detail.total }}
                                     </td>
                                     <td>
                                         <IconBtn
@@ -784,19 +784,19 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td>Impuestos</td>
-                                <td>S/. {{ igv_total }}</td>
+                                <td>$. {{ igv_total }}</td>
                             </tr>
                             <tr>
                                 <td>Descuento</td>
-                                <td>S/. {{ discount_total }}</td>
+                                <td>$. {{ discount_total }}</td>
                             </tr>
                             <tr>
                                 <td>SubTotal</td>
-                                <td>S/. {{ subtotal_original }}</td>
+                                <td>$. {{ subtotal_original }}</td>
                             </tr>
                             <tr>
                                 <td>Total</td>
-                                <td>S/. {{ total_all }}</td>
+                                <td>$. {{ total_all }}</td>
                             </tr>
                         </table>
                     </VCol>
@@ -818,9 +818,7 @@
                                     :items="[
                                         'EFECTIVO',
                                         'DEPOSITO',
-                                        'TRANSFERENCIA',
-                                        'YAPE',
-                                        'PLIN'
+                                        'TRANSFERENCIA'
                                     ]"
                                     v-model="method_payment"
                                 >
@@ -871,7 +869,7 @@
                                                 {{ payment.method_payment }}
                                             </td>
                                             <td>
-                                                S/. {{ payment.amount }}
+                                                $. {{ payment.amount }}
                                             </td>
                                             <td>
                                                 <IconBtn
@@ -884,12 +882,12 @@
                                         </tr>
                                         <tr>
                                             <td>Total</td>
-                                            <td>S/. {{ payment_total }}</td>
+                                            <td>$. {{ payment_total }}</td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>Deuda</td>
-                                            <td>S/. {{ (total_all - payment_total).toFixed(2) }}</td>
+                                            <td>$. {{ (total_all - payment_total).toFixed(2) }}</td>
                                             <td></td>
                                         </tr>
                                     </tbody>

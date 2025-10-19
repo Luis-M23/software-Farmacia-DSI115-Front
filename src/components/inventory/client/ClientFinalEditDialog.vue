@@ -21,7 +21,7 @@ const emit = defineEmits([
 const full_name = ref(null);
 const email  = ref(null);
 const phone  = ref(null);
-const type_document  = ref('DNI');
+const type_document  = ref('DUI');
 const n_document  = ref(null);
 const address  = ref(null);
 const name = ref(null);
@@ -323,9 +323,7 @@ const dialogVisibleUpdate = val => {
                 <VSelect
                     :items="[
                         'DNI',
-                        'PASAPORTE',
-                        'CARNET DE EXTRANJERIA',
-                        'TARJETA MILITAR'
+                        'PASAPORTE'
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"

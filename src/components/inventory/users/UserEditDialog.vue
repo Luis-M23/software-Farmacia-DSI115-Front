@@ -21,13 +21,14 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'editUser'
+  'editUser',
+  "close",
 ])
 const name = ref(null);
 const surname  = ref(null);
 const email  = ref(null);
 const phone  = ref(null);
-const type_document  = ref('DNI');
+const type_document  = ref('DUI');
 const n_document  = ref(null);
 const role_id  = ref(null);
 const sucursale_id  = ref(null);
@@ -129,16 +130,19 @@ const update = async() => {
         error_exits.value = response._data.error;
       }
     })
-    console.log(resp);
-    if(resp.message == 403){
+    if (resp.message == 403) {
       error_exits.value = resp.message_text;
-    }else{
+    } else {
       success.value = "El usuario se ha editado correctamente";
-      emit("editUser",resp.user);
+      emit("editSucursal", resp.sucursal);
       warning.value = null;
       error_exits.value = null;
-    //   success.value = null;
-    //   onFormReset();
+
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
   } catch (error) {
     console.log(error);
@@ -260,10 +264,8 @@ onMounted(() => {
             >
                 <VSelect
                     :items="[
-                        'DNI',
-                        'PASAPORTE',
-                        'CARNET DE EXTRANJERIA',
-                        'TARJETA MILITAR'
+                        'DUI',
+                        'PASAPORTE'
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"

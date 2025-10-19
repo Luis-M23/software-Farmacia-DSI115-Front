@@ -103,7 +103,7 @@ export default [
     permission: 'return',
     to: 'refound-list',
   },
-  { heading: 'Almacen',permissions: ['register_purchase','list_purchase','register_transport','list_transport','conversions','kardex'] },
+  { heading: 'Compras',permissions: ['register_purchase','list_purchase','register_transport','list_transport','conversions','kardex'] },
   {
     title: 'Compras',
     icon: { icon: 'ri-shopping-cart-line' },

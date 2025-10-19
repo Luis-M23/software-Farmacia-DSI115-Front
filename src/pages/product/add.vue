@@ -809,7 +809,7 @@ definePage({ meta: { permission: 'register_product', } });
                     {{ product_wallet.type_client_name }}
                   </td>
                   <td>
-                    {{ product_wallet.price }} PEN
+                    {{ product_wallet.price }} Dólares
                   </td>
                   <td>
                     <IconBtn

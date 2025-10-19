@@ -96,17 +96,12 @@ const themeMode = computed(() => {
     {
       bgImage: 'ri-sun-line',
       value: Theme.Light,
-      label: 'Light',
+      label: 'Blanco',
     },
     {
       bgImage: 'ri-moon-clear-line',
       value: Theme.Dark,
-      label: 'Dark',
-    },
-    {
-      bgImage: 'ri-computer-line',
-      value: Theme.System,
-      label: 'System',
+      label: 'Verde',
     },
   ]
 })

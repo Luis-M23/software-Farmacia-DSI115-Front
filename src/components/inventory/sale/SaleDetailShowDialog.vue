@@ -131,7 +131,7 @@ onMounted(() => {
                                 {{ sale_detail.quantity }}
                             </td>
                             <td style="text-wrap-mode: nowrap;">
-                                S/. {{ sale_detail.total }}
+                                  $. {{ sale_detail.total }}
                             </td>
                         </tr>
                     </tbody>
@@ -184,7 +184,7 @@ onMounted(() => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

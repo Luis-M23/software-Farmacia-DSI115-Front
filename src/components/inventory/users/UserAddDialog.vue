@@ -17,13 +17,14 @@ const props = defineProps({
 
 const emit = defineEmits([
   'update:isDialogVisible',
-  'addUser'
+  'addUser',
+  'close',
 ])
 const name = ref(null);
 const surname  = ref(null);
 const email  = ref(null);
 const phone  = ref(null);
-const type_document  = ref('DNI');
+const type_document  = ref('DUI');
 const n_document  = ref(null);
 const role_id  = ref(null);
 const sucursale_id  = ref(null);
@@ -135,12 +136,17 @@ const store = async() => {
       FILE_AVATAR.value = null;
       IMAGEN_PREVIZUALIZA.value = null;
       gender.value = null;
-      type_document.value = 'DNI';
+      type_document.value = 'DUI';
       n_document.value = '';
       warning.value = null;
       error_exits.value = null;
       success.value = null;
       onFormReset();
+      // Espera un momento para mostrar el mensaje y luego cerrar el modal
+      setTimeout(() => {
+        emit("update:isDialogVisible", false)
+        emit("close")
+      }, 1000);
     }
   } catch (error) {
     console.log(error);

@@ -125,7 +125,7 @@
 
     const calcTotalPurchase = () => {
         importe.value = Number(purchase_details.value.reduce((sum,purchase_detail) => sum + purchase_detail.total,0).toFixed(2));
-        igv.value = Number((importe.value * 0.18).toFixed(2));
+        igv.value = Number((importe.value * 0.13).toFixed(2));
         total.value = Number((importe.value + igv.value).toFixed(2));
     }
 
@@ -234,11 +234,8 @@
         <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
             <div class="d-flex flex-column justify-center">
                 <h4 class="text-h4 mb-1">
-                    🗃️ Add New Purchase
+                    Agregar Nueva Compra
                 </h4>
-                <p class="text-body-1 mb-0">
-                Orders placed across your store
-                </p>
             </div>
         </div>
 
@@ -301,10 +298,9 @@
                                 <VSelect
                                     :items="[
                                         'FACTURA ELECTRÓNICA',
+                                        'CRÉDITO FISCAL',
                                         'NOTA DE CREDITO',
-                                        'NOTA DE DEBITO',
-                                        'RECIBO POR HONARIOS',
-                                        'GUIA DE REMISIÓN'
+                                        'NOTA DE DEBITO'
                                     ]"
                                     v-model="type_comprobant"
                                     label="Tipo de Comprobantes"
@@ -367,8 +363,8 @@
                                             item-title="title"
                                             item-value="id"
                                             return-object
-                                            placeholder="Search for a product"
-                                            label="¿Que agregamos?"
+                                            placeholder="Busca el producto"
+                                            label="¿Que desea agregar?"
                                             variant="underlined"
                                             :menu-props="{ maxHeight: '200px' }"
                                         />
@@ -465,9 +461,9 @@
                             <tr v-for="(purchase_detail, index) in purchase_details" :key="index">
                                 <td>{{ purchase_detail.product.title }}</td>
                                 <td>{{ purchase_detail.unit.name }}</td>
-                                <td>S/. {{ purchase_detail.price_unit }}</td>
+                                <td>$. {{ purchase_detail.price_unit }}</td>
                                 <td>{{ purchase_detail.quantity }}</td>
-                                <td>S/. {{ purchase_detail.total }}</td>
+                                <td>$. {{ purchase_detail.total }}</td>
                                 <td>
                                     <IconBtn
                                         size="small"
@@ -491,7 +487,7 @@
                                 </td>
                                 <td>
                                     <VTextField
-                                        label="Igv"
+                                        label="iva"
                                         placeholder=""
                                         type="number"
                                         v-model="igv"
