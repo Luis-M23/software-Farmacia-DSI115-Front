@@ -54,7 +54,7 @@ export default [
       },
     ],
   },
-  { heading: 'producto/cliente',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
+  { heading: 'productos',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
   {
     title: 'Productos',
     icon: { icon: 'ri-product-hunt-line' },
@@ -73,13 +73,15 @@ export default [
       },
     ],
   },
+  { heading: 'Clientes',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
   {
     title: 'Clientes',
     icon: { icon: 'ri-team-line' },
     permission: 'list_client',
     to: 'client-list',
   },
-  {
+  { heading: 'Ventas',permissions: ['list_product','register_product','list_client','register_sale','list_sale','return'] },
+    {
     title: 'Ventas',
     icon: { icon: 'ri-exchange-dollar-line' },
     children: [
@@ -97,12 +99,12 @@ export default [
       },
     ],
   },
-  {
+  /*{
     title: 'Devolución',
     icon: { icon: 'ri-loop-right-line' },
     permission: 'return',
     to: 'refound-list',
-  },
+  },*/
   { heading: 'Compras',permissions: ['register_purchase','list_purchase','register_transport','list_transport','conversions','kardex'] },
   {
     title: 'Compras',
@@ -122,7 +124,7 @@ export default [
       },
     ],
   },
-  {
+  /*{
     title: 'Transporte',
     icon: { icon: 'ri-translate' },
     children: [
@@ -151,5 +153,5 @@ export default [
     to: { name: 'kardex' },
     permission: 'kardex',
     icon: { icon: 'ri-draft-line' },
-  },
+  },*/
 ]
