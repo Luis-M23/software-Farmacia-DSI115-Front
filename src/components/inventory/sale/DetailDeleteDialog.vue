@@ -63,7 +63,7 @@ const dialogVisibleUpdate = val => {
     @update:model-value="dialogVisibleUpdate"
   >
     <VCard class="pa-sm-11 pa-3">
-      <!-- 👉 dialog close btn -->
+      <!-- btn cerrar cuadeo dialogo -->
       <DialogCloseBtn
         variant="text"
         size="default"
@@ -73,21 +73,21 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Delete Sale Detail : {{ props.saleDetailSelected.id }}
+            Eliminar detalle de la venta : {{ props.saleDetailSelected.product.title }}
           </h4>
         </div>
 
-        <!-- 👉 Form -->
+        <!-- Form -->
         <VForm
           class="mt-4"
           @submit.prevent="deleteSaleDetail"
         >
           <VRow>
-            <!-- 👉 First Name -->
+            <!-- First Name -->
             <VCol
               cols="12"
             >
-              <p>¿Estas seguro de eliminar el Detallado : {{props.saleDetailSelected.product.title}}?</p>
+              <p>¿Esta seguro de eliminar el Detallado : {{props.saleDetailSelected.product.title}}?</p>
             </VCol>
             <VCol
               cols="12"
@@ -125,7 +125,7 @@ const dialogVisibleUpdate = val => {
               {{ success }}
               </VAlert>
             </VCol>
-            <!-- 👉 Submit and Cancel -->
+            <!-- enviar y cancelar -->
             <VCol
               cols="12"
               class="d-flex flex-wrap justify-center gap-4"
@@ -139,7 +139,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>
