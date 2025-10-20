@@ -32,7 +32,7 @@
   })
 </script>
 <template>
-  <VCard>
+  <!--<VCard>
     <VCardText>
       <div class="d-flex align-center justify-space-between">
         <div class="text-body-1">
@@ -147,5 +147,5 @@
         />
       </div>
     </VCardText>
-  </VCard>
+  </VCard>-->
 </template>

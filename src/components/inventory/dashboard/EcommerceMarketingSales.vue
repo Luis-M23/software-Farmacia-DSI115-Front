@@ -1,12 +1,10 @@
 <script setup>
-import accountLogo from '@images/cards/accounting-logo.png'
-import marketingExpense from '@images/cards/marketing-expense-logo.png'
-import salesOverview from '@images/cards/sales-overview-logo.png'
+import accountLogo2 from '@images/logos/logoIndex.jpeg'
 
 const websiteAnalytics = [
   {
     name: 'Marketing Expense',
-    slideImg: marketingExpense,
+    slideImg: accountLogo2,
     data: [
       {
         number: '5k',
@@ -28,7 +26,7 @@ const websiteAnalytics = [
   },
   {
     name: 'Accounting',
-    slideImg: accountLogo,
+    slideImg: accountLogo2,
     data: [
       {
         number: '18',
@@ -50,7 +48,7 @@ const websiteAnalytics = [
   },
   {
     name: 'Sales Overview',
-    slideImg: salesOverview,
+    slideImg: accountLogo2,
     data: [
       {
         number: '68',
@@ -94,7 +92,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <VCard color="error">
+  <VCard color="success">
     <VCarousel
       :continuous="false"
       :show-arrows="false"
@@ -108,113 +106,63 @@ onMounted(() => {
         v-for="item in sucursales"
         :key="item.name"
       >
-        <VCardItem>
-          <VCardTitle class="text-white">{{ item.name }}</VCardTitle>
-          <VCardSubtitle class="text-white">
-            Total S/. {{ item.sales_total_sucursal }}
-
-            <div class="d-inline-block text-success font-weight-medium" v-if="item.variation_perncetage_sale_total >= 0">
-              <div class="d-flex align-center">
-                +{{item.variation_perncetage_sale_total}}%
-                <VIcon
-                  icon="ri-arrow-up-s-line"
-                  size="20"
-                />
-              </div>
-            </div>
-
-            <div class="d-inline-block text-danger font-weight-medium" v-if="item.variation_perncetage_sale_total < 0">
-              <div class="d-flex align-center">
-                -{{item.variation_perncetage_sale_total}}%
-                <VIcon
-                  icon="ri-arrow-down-s-line"
-                  size="20"
-                />
-              </div>
-            </div>
-
+        <!-- Header Section -->
+        <VCardItem class="pb-2">
+          <template v-slot:prepend>
+            <img
+              :src="accountLogo2"
+              class="rounded me-4"
+              width="70"
+              height="70"
+            >
+          </template>
+          <VCardTitle class="text-h5 text-white mb-1">
+            Sucursal {{ item.name }}
+          </VCardTitle>
+          <VCardSubtitle class="text-white d-flex align-center gap-2">
+            Total $. {{ item.sales_total_sucursal }}
+            <span 
+              :class="item.variation_perncetage_sale_total >= 0 ? 'text-success' : 'text-danger'"
+              class="d-flex align-center"
+            >
+              {{ item.variation_perncetage_sale_total >= 0 ? '+' : '-' }}
+              {{ Math.abs(item.variation_perncetage_sale_total) }}%
+              <VIcon
+                :icon="item.variation_perncetage_sale_total >= 0 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"
+                size="20"
+              />
+            </span>
           </VCardSubtitle>
         </VCardItem>
 
-        <VCardText class="py-0">
-          <div class="d-flex flex-column flex-sm-row gap-6 mb-3">
-            <div class="text-center">
-              <img
-                width="86"
-                height="102"
-                :src="accountLogo"
-                class="rounded"
-              >
-            </div>
-            <div>
-              <h6 class="text-h6 text-white mb-2">
-                {{ item.name }}
-              </h6>
-              <div>
-                <VRow no-gutters>
-                  <VCol
-                    cols="6"
-                    class="text-no-wrap text-truncate text-xs d-flex align-center gap-x-3 pb-3"
-                  >
-                    <div
-                      style="background-color: rgba(var(--v-theme-on-surface), var(--v-selected-opacity));"
-                      class="rounded px-2 py-1 text-body-1 text-white font-weight-medium"
-                    >
-                      {{ item.n_sales }}
-                    </div>
-                    <div class="text-body-1 text-white text-truncate">
-                      N° de Ventas
-                    </div>
-                  </VCol>
-
-                  <VCol
-                    cols="6"
-                    class="text-no-wrap text-truncate text-xs d-flex align-center gap-x-3 pb-3"
-                  >
-                    <div
-                      style="background-color: rgba(var(--v-theme-on-surface), var(--v-selected-opacity));"
-                      class="rounded px-2 py-1 text-body-1 text-white font-weight-medium"
-                    >
-                    {{ item.n_cotizaciones }}
-                    </div>
-                    <div class="text-body-1 text-white text-truncate">
-                      N° Cotizaciónes
-                    </div>
-                  </VCol>
-
-                  <VCol
-                    cols="6"
-                    class="text-no-wrap text-truncate text-xs d-flex align-center gap-x-3 pb-3"
-                  >
-                    <div
-                      style="background-color: rgba(var(--v-theme-on-surface), var(--v-selected-opacity));"
-                      class="rounded px-2 py-1 text-body-1 text-white font-weight-medium"
-                    >
-                      S/. {{ item.amount_total_payment }}
-                    </div>
-                    <div class="text-body-1 text-white text-truncate">
-                      Monto Pagado
-                    </div>
-                  </VCol>
-
-                  <VCol
-                    cols="6"
-                    class="text-no-wrap text-truncate text-xs d-flex align-center gap-x-3 pb-3"
-                  >
-                    <div
-                      style="background-color: rgba(var(--v-theme-on-surface), var(--v-selected-opacity));"
-                      class="rounded px-2 py-1 text-body-1 text-white font-weight-medium"
-                    >
-                    S/. {{ item.amount_total_not_payment }}
-                    </div>
-                    <div class="text-body-1 text-white text-truncate">
-                     Monto Adeudado
-                    </div>
-                  </VCol>
-                </VRow>
+        <!-- Stats Grid -->
+        <VCardText>
+          <VRow>
+            <VCol
+              v-for="(stat, index) in [
+                { value: item.n_sales, label: 'N° de Ventas' },
+                { value: item.n_cotizaciones, label: 'Número de Cotizaciones' },
+                { value: `$. ${item.amount_total_payment}`, label: 'Monto Pagado' },
+                { value: `$. ${item.amount_total_not_payment}`, label: 'Monto Adeudado' }
+              ]"
+              :key="index"
+              cols="12"
+              sm="3"
+              class="pb-2"
+            >
+              <div class="d-flex align-center gap-3">
+                <div
+                  class="rounded px-3 py-2 text-white font-weight-medium"
+                  style="background-color: rgba(var(--v-theme-on-surface), 0.12);"
+                >
+                  {{ stat.value }}
+                </div>
+                <div class="text-white">
+                  {{ stat.label }}
+                </div>
               </div>
-            </div>
-          </div>
+            </VCol>
+          </VRow>
         </VCardText>
       </VCarouselItem>
     </VCarousel>

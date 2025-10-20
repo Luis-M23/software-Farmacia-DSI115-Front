@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <VCard class="position-relative">
+  <!--<VCard class="position-relative">
     <VCardText>
       <div class="mb-3">
         <h5 class="text-h5 text-wrap">
@@ -44,19 +44,19 @@ onMounted(() => {
       <div class="text-body-1 mb-3 text-danger" v-if="variation_percentage_client_most_sale < 0">
         - {{variation_percentage_client_most_sale}}%<span class="text-high-emphasis">🚀</span>
       </div>
-    </VCardText>
+    </VCardText>-->
 
     <!-- Trophy 
      //Mujer
     https://cdn-icons-png.flaticon.com/512/6633/6633170.png 
     //Empresa
     https://cdn-icons-png.flaticon.com/512/12287/12287163.png
-    -->
+    
     <VImg
       src="https://cdn-icons-png.flaticon.com/512/4814/4814961.png"
       class="trophy flip-in-rtl"
     />
-  </VCard>
+  </VCard>-->
 </template>
 
 <style lang="scss">

@@ -8,42 +8,14 @@ import console3 from '@images/cards/nintendo-switch.png'
 import mobile3 from '@images/cards/oneplus-9-pro.png'
 import mobile1 from '@images/cards/samsung-s22.png'
 import console1 from '@images/cards/sony-play-station-5.png'
-import catImg3 from '@images/cards/tabs-console.png'
-import catImg2 from '@images/cards/tabs-desktop.png'
-import catImg1 from '@images/cards/tabs-mobile.png'
 import console2 from '@images/cards/xbox-series-x.png'
 
 const currentTab = ref('')
-// [
-//   {
-//     title: 'mobile',
-//     img: {
-//       src: catImg1,
-//       width: 30,
-//       height: 58,
-//     },
-//   },
-//   {
-//     title: 'desktop',
-//     img: {
-//       src: catImg2,
-//       width: 52,
-//       height: 42,
-//     },
-//   },
-//   {
-//     title: 'console',
-//     img: {
-//       src: catImg3,
-//       width: 60,
-//       height: 42,
-//     },
-//   },
-// ]
+
 const categories = ref([]);
 const products = ref([]);
 
-const productData = {
+/*const productData = {
   mobile: [
     {
       status: 'Out of Stock',
@@ -120,7 +92,7 @@ const productData = {
       image: console3,
     },
   ],
-}
+}*/
 
 const resolveChipColor = status => {
   if (status === 1)
@@ -239,174 +211,150 @@ onMounted(() => {
 </script>
 
 <template>
-  <VCard
-    title="Categories most sales"
-    subtitle="Number of Sales"
-  >
-    <template #append>
-      <VRow style="width: 350px;">
-        <VCol cols="6">
+  <VCard class="elevation-2">
+    <VCardTitle class="d-flex justify-space-between align-center pa-4">
+      <div>
+        <h2 class="text-h5 mb-1">Categorías más vendidas</h2>
+        <span class="text-caption">Número de Ventas por Categoría</span>
+      </div>
+      <VRow style="width: 350px;" class="ma-0">
+        <VCol cols="6" class="pa-1">
           <VSelect
+            density="comfortable"
             :items="year_list"
-            placeholder="Select"
             v-model="year_selected"
             label="Año"
+            variant="outlined"
+            hide-details
           />
         </VCol>
-        <VCol cols="6">
+        <VCol cols="6" class="pa-1">
           <VSelect
+            density="comfortable"
             :items="month_list"
             item-value="id"
             item-title="name"
-            placeholder="Select"
             v-model="month_selected"
             label="Mes"
+            variant="outlined"
+            hide-details
           />
         </VCol>
       </VRow>
-      <!-- <div class="me-n3 mt-n8">
-        <MoreBtn :menu-list="moreList" />
-      </div> -->
-    </template>
+    </VCardTitle>
 
-    <VCardText class="pb-6">
+    <VDivider />
+
+    <VCardText class="pa-4">
       <VSlideGroup
         v-model="currentTab"
         show-arrows
         mandatory
+        class="mb-6"
       >
         <VSlideGroupItem
           v-for="category in categories"
           :key="category.name"
-          v-slot="{ isSelected, toggle }"
+          v-slot="{ isSelected }"
           :value="category.name"
         >
-          <div
-            :class="isSelected ? 'selected-category' : 'not-selected-category'"
-            class="d-flex flex-column justify-center align-center cursor-pointer rounded-xl px-5 py-2 me-4"
-            style="block-size: 5.375rem;inline-size: 5.75rem;"
-            @click="categorieSelected(category)"
-          >
-            <VImg
-              v-bind="{
-                src: category.imagen,
-                width: 58,
-                height: 58,
-              }"
-              alt="slide-img"
-            />
-          </div>
-        </VSlideGroupItem>
-
-        <!-- <VSlideGroupItem>
-          <div
-            class="d-flex flex-column justify-center align-center rounded-xl me-4 cursor-pointer not-selected-category"
-            style="block-size: 5.375rem;inline-size: 5.75rem;"
-          >
-            <VAvatar
-              rounded
-              size="30"
-              color="default"
-              variant="tonal"
+          <VHover v-slot="{ isHovering }">
+            <div
+              :class="[
+                isSelected ? 'selected-category' : 'not-selected-category',
+                isHovering ? 'hover-effect' : ''
+              ]"
+              class="d-flex flex-column justify-center align-center cursor-pointer rounded-xl px-5 py-2 me-4 transition-transform"
+              style="block-size: 5.375rem; inline-size: 5.75rem;"
+              @click="categorieSelected(category)"
             >
-              <VIcon
-                icon="ri-add-line"
-                size="22"
+              <VImg
+                :src="category.imagen"
+                :width="58"
+                :height="58"
+                alt="category-img"
+                class="transition-transform"
               />
-            </VAvatar>
-          </div>
-        </VSlideGroupItem> -->
+            </div>
+          </VHover>
+        </VSlideGroupItem>
       </VSlideGroup>
+
+      <VTable class="text-no-wrap custom-table rounded">
+        <thead>
+          <tr>
+            <th scope="col" class="text-primary">IMAGEN</th>
+            <th scope="col" class="text-primary">NOMBRE</th>
+            <th scope="col" class="text-end text-primary">ESTADO</th>
+            <th scope="col" class="text-end text-primary">TOTAL DE VENTAS</th>
+            <th scope="col" class="text-end text-primary">N° DE VENTAS</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            v-for="product in products"
+            :key="product.product_id"
+            class="hover-row"
+          >
+            <td>
+              <VAvatar
+                rounded
+                :image="product.product_imagen"
+                size="40"
+                class="elevation-1"
+              />
+            </td>
+            <td class="font-weight-medium">{{ product.product_title }}</td>
+            <td class="text-end">
+              <VChip
+                :color="product.product_state_stock === 1 ? 'success' : product.product_state_stock === 2 ? 'warning' : 'error'"
+                size="small"
+                class="font-weight-medium"
+              >
+                {{ product.product_state_stock === 1 ? 'DISPONIBLE' : product.product_state_stock === 2 ? 'POR AGOTAR' : 'AGOTADO' }}
+              </VChip>
+            </td>
+            <td class="text-end font-weight-medium">$. {{ product.total_sales }}</td>
+            <td class="text-end font-weight-medium">{{ product.count_sales }}</td>
+          </tr>
+        </tbody>
+      </VTable>
     </VCardText>
-
-    <VTable class="text-no-wrap text-sm referral-table">
-      <thead>
-        <tr>
-          <th scope="col">
-            IMAGE
-          </th>
-          <th scope="col">
-            NAME
-          </th>
-          <th
-            scope="col"
-            class="text-end"
-          >
-            STATUS
-          </th>
-          <th
-            scope="col"
-            class="text-end"
-          >
-            TOTAL SALES
-          </th>
-          <th
-            scope="col"
-            class="text-end"
-          >
-            N° SALES
-          </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr
-          v-for="product in products"
-          :key="product.product_id"
-        >
-          <td>
-            <VAvatar
-              rounded
-              :image="product.product_imagen"
-              size="34"
-            />
-          </td>
-
-          <td style="text-wrap: initial;">
-            {{ product.product_title }}
-          </td>
-
-          <td class="text-end">
-            <VChip color="primary" v-if="product.product_state_stock == 1">
-                DISPONIBLE
-            </VChip>
-            <VChip color="warning" v-if="product.product_state_stock == 2">
-                POR AGOTAR
-            </VChip>
-            <VChip color="error" v-if="product.product_state_stock == 3">
-                AGOTADO
-            </VChip>
-          </td>
-
-          <td class="text-end font-weight-medium">
-            S/. {{ product.total_sales }}
-          </td>
-
-          <td class="font-weight-medium text-end">
-            {{ product.count_sales }}
-          </td>
-        </tr>
-      </tbody>
-    </VTable>
   </VCard>
 </template>
 
 <style lang="scss" scoped>
 .selected-category {
   border: 2px solid rgb(var(--v-theme-primary));
+  background: rgba(var(--v-theme-primary), 0.05);
 }
 
 .not-selected-category {
   border: 2px dashed rgba(var(--v-border-color), var(--v-border-opacity));
 }
-</style>
 
-<style lang="scss">
-.referral-table {
-  &.v-table .v-table__wrapper table thead tr th {
-    background: none !important;
-    block-size: 3.5rem;
-    border-block: thin solid rgba(var(--v-border-color), var(--v-border-opacity)) !important;
+.hover-effect {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.custom-table {
+  border: thin solid rgba(var(--v-border-color), var(--v-border-opacity));
+  
+  .hover-row:hover {
+    background: rgba(var(--v-theme-primary), 0.05);
+  }
+
+  th {
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: rgba(var(--v-theme-surface), 1) !important;
+    padding: 0.75rem 1rem;
+  }
+
+  td {
+    padding: 0.75rem 1rem;
   }
 }
 </style>

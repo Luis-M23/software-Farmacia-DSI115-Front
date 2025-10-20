@@ -18,29 +18,29 @@
             }
         })
         console.log(resp);
-        statisticsVertical.value = [
+        /*statisticsVertical.value = [
             {
               title: 'Total Sales',
               color: 'primary',
               icon: 'ri-shopping-cart-line',
-              stats: 'S/. '+resp.total_sales_month_current,
+              stats: '$. '+resp.total_sales_month_current,
               change: resp.variation_percentage_total_sales,
             },
             {
               title: resp.sucursales_most_sales_month_current ?  resp.sucursales_most_sales_month_current.sucursale_most_sales : 'No hay una sucursal',
               color: 'success',
               icon: 'ri-handbag-line',
-              stats: resp.sucursales_most_sales_month_current ? 'S/. '+resp.sucursales_most_sales_month_current.total_sales : 0,
+              stats: resp.sucursales_most_sales_month_current ? '$. '+resp.sucursales_most_sales_month_current.total_sales : 0,
               change: resp.variation_percentage_sucursal_most_sale,
             },
             {
               title: 'Total Purchase',
               color: 'secondary',
               icon: 'ri-truck-line',
-              stats: 'S/. '+resp.purchase_total_month_current,
+              stats: '$. '+resp.purchase_total_month_current,
               change: resp.variation_percentage_purchase,
             },
-          ]
+          ]*/
       } catch (error) {
         console.log(error);
       }
@@ -57,7 +57,7 @@
             }
         })
         console.log(resp);
-        statisticsWithImages.value = [
+        /*statisticsWithImages.value = [
           {
               title: 'Asesor Comercial',
               subtitle: resp.asesores_m_most_sales_month_current ? resp.asesores_m_most_sales_month_current.asesor_full_name : 'No hay',
@@ -76,7 +76,7 @@
               imgWidth: 85,
               color: 'success',
           },
-      ]
+      ]*/
       } catch (error) {
         console.log(error);
       }
@@ -90,56 +90,18 @@
 <template>
     <div>
         <VRow class="match-height" v-if="isPermission('dashboard')">
-            <VCol
-              v-for="statistics in statisticsVertical"
-              :key="statistics.title"
-              cols="12"
-              sm="6"
-              md="2"
-            >
-              <CardStatisticsVertical2 v-bind="statistics" />
-            </VCol>
 
-            <!-- 👉 Images Cards -->
-            <VCol
-                v-for="statistics in statisticsWithImages"
-                :key="statistics.title"
-                cols="12"
-                sm="6"
-                md="3"
-            >
-                <CardStatisticsWithImages2 v-bind="statistics" />
-            </VCol>
-            
-            
-
-            <!-- 👉 Total Visits -->
-            <VCol
-                cols="12"
-                md="3"
-                sm="6"
-            >
-                <EcommerceTotalVisits />
-            </VCol>
             <VCol
               cols="12"
-              md="6"
+              md="12"
             >
               <EcommerceMarketingSales />
             </VCol>
 
+            <!-- compras -->
             <VCol
                 cols="12"
-                md="3"
-                sm="6"
-            >
-                <CrmCongratulationsNorris />
-            </VCol>
-
-            <!-- 👉 Weekly Sales -->
-            <VCol
-                cols="12"
-                md="6"
+                md="12"
             >
                 <AnalyticsWeeklySales />
             </VCol>
@@ -147,12 +109,10 @@
             <!-- 👉 Top Referral Sources -->
             <VCol
               cols="12"
-              md="6"
+              md="12"
             >
               <EcommerceTopReferralSources />
             </VCol>
-            
-
         </VRow>
     </div>
 </template>
