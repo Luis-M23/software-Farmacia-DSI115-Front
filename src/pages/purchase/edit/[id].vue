@@ -1,4 +1,6 @@
 <script setup>
+    import { useRoute, useRouter } from 'vue-router'
+    const router = useRouter()
     const route = useRoute('purchase-edit-id');
     const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
     const isPurchaseDetailDialogVisible = ref(false);
@@ -262,18 +264,11 @@
             })
             console.log(resp);
             success_purchase.value = "LA COMPRA SE HA ACTUALIZADO CORRECTAMENTE";
-            // setTimeout(() => {
-            //     warehouse_id.value = '';
-            //     provider_id.value = '';
-            //     type_comprobant.value = '';
-            //     n_comprobant.value = '';
-            //     description.value = '';
-
-            //     purchase_details.value = [];
-            //     total.value = 0;
-            //     importe.value = 0;
-            //     igv.value = 0;
-            // }, 25);
+            // Esperar 1 segundos y redirigir a la lista de ventas
+            setTimeout(() => {
+                router.push({ name: 'purchase-list' });
+            }, 1000);
+            // cleanFieldForm();
         } catch (error) {
             console.log(error);
         }

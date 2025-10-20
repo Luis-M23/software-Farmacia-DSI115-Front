@@ -1,5 +1,5 @@
-import { useRoute, useRouter } from 'vue-router'
 <script setup>
+    import { useRoute, useRouter } from 'vue-router'
     const route = useRoute('sales-edit-id');
     const router = useRouter();
     const isClientSearchDialogVisible = ref(false);
