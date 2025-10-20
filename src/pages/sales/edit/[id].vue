@@ -1,5 +1,7 @@
+import { useRoute, useRouter } from 'vue-router'
 <script setup>
     const route = useRoute('sales-edit-id');
+    const router = useRouter();
     const isClientSearchDialogVisible = ref(false);
     const isClientFinalAddDialogVisible = ref(false);
     const isClientCompanyAddDialogVisible = ref(false);
@@ -583,7 +585,10 @@
             })
             console.log(resp);
             success_sale.value = 'La '+(selectedRadio.value == 1 ? ' VENTA ' : ' COTIZACIÓN ')+' se ha EDITADO correctamente';
-            show();
+            // Esperar 1 segundos y redirigir a la lista de ventas
+            setTimeout(() => {
+                router.push({ name: 'sales-list' });
+            }, 1000);
             // cleanFieldForm();
         } catch (error) {
             console.log(error);
