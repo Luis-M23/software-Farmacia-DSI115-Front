@@ -650,9 +650,9 @@
                                 </td>
                                 <td>{{ transport_detail.product.title }}</td>
                                 <td>{{ transport_detail.unit.name }}</td>
-                                <td>S/. {{ transport_detail.price_unit }}</td>
+                                <td>$. {{ transport_detail.price_unit }}</td>
                                 <td>{{ transport_detail.quantity }}</td>
-                                <td>S/. {{ transport_detail.total }}</td>
+                                <td>$. {{ transport_detail.total }}</td>
                                 <td>
                                     <IconBtn
                                         size="small"

@@ -392,7 +392,7 @@ definePage({ meta: { permission: 'register_product', } });
                 <VTextField
                   label="Precio (Cliente Final):"
                   v-model="product.price_general"
-                  placeholder="S/. 50"
+                  placeholder="$ 50"
                 />
               </VCol>
               <VCol
@@ -402,7 +402,7 @@ definePage({ meta: { permission: 'register_product', } });
                 <VTextField
                   label="Precio (Cliente Empresa):"
                   v-model="product.price_company"
-                  placeholder="S/. 100"
+                  placeholder="$ 100"
                 />
               </VCol>
               <VCol>

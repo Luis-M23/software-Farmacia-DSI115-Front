@@ -296,8 +296,8 @@
                                                 <td>{{ movimient.detalle }}</td>
                                                 <template v-if="movimient.entrada">
                                                     <td>{{ movimient.entrada.quantity }}</td>
-                                                    <td>S/.{{ movimient.entrada.price_unit }}</td>
-                                                    <td>S/. {{ movimient.entrada.total }}</td>
+                                                    <td>$.{{ movimient.entrada.price_unit }}</td>
+                                                    <td>$. {{ movimient.entrada.total }}</td>
                                                 </template>
                                                 <template v-if="!movimient.entrada">
                                                     <td></td>
@@ -307,8 +307,8 @@
 
                                                 <template v-if="movimient.salida">
                                                     <td>{{ movimient.salida.quantity }}</td>
-                                                    <td>S/.{{ movimient.salida.price_unit }}</td>
-                                                    <td>S/. {{ movimient.salida.total }}</td>
+                                                    <td>$.{{ movimient.salida.price_unit }}</td>
+                                                    <td>$. {{ movimient.salida.total }}</td>
                                                 </template>
                                                 <template v-if="!movimient.salida">
                                                     <td></td>
@@ -317,8 +317,8 @@
                                                 </template>
 
                                                 <td>{{ movimient.existencia.quantity }}</td>
-                                                <td>S/.{{ movimient.existencia.price_unit }}</td>
-                                                <td>S/. {{ movimient.existencia.total }}</td>
+                                                <td>$.{{ movimient.existencia.price_unit }}</td>
+                                                <td>$. {{ movimient.existencia.total }}</td>
                                             </tr>
                                         </template>
                                     </template>
@@ -351,8 +351,8 @@
 
                                                 <template v-if="movimient.entrada">
                                                     <td>{{ movimient.entrada.quantity }}</td>
-                                                    <td>S/.{{ movimient.entrada.price_unit }}</td>
-                                                    <td>S/. {{ movimient.entrada.total }}</td>
+                                                    <td>$.{{ movimient.entrada.price_unit }}</td>
+                                                    <td>$. {{ movimient.entrada.total }}</td>
                                                 </template>
                                                 <template v-if="!movimient.entrada">
                                                     <td></td>
@@ -362,8 +362,8 @@
 
                                                 <template v-if="movimient.salida">
                                                     <td>{{ movimient.salida.quantity }}</td>
-                                                    <td>S/.{{ movimient.salida.price_unit }}</td>
-                                                    <td>S/. {{ movimient.salida.total }}</td>
+                                                    <td>$.{{ movimient.salida.price_unit }}</td>
+                                                    <td>$. {{ movimient.salida.total }}</td>
                                                 </template>
                                                 <template v-if="!movimient.salida">
                                                     <td></td>
@@ -372,8 +372,8 @@
                                                 </template>
 
                                                 <td>{{ movimient.existencia.quantity }}</td>
-                                                <td>S/.{{ movimient.existencia.price_unit }}</td>
-                                                <td>S/. {{ movimient.existencia.total }}</td>
+                                                <td>$.{{ movimient.existencia.price_unit }}</td>
+                                                <td>$. {{ movimient.existencia.total }}</td>
                                             </tr>
                                         </template>
                                     </template>
