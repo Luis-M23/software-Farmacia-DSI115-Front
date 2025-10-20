@@ -1000,7 +1000,7 @@ definePage({ meta: { permission: 'edit_product', } });
                       label="% de descuento maximo:"
                       type="number"
                       v-model="product.max_discount"
-                      placeholder="18%"
+                      placeholder="13%"
                     />
                 </div>
               </div>
@@ -1041,7 +1041,7 @@ definePage({ meta: { permission: 'edit_product', } });
                 label="Importe IVA:"
                 type="number"
                 v-model="product.importe_iva"
-                placeholder="18%"
+                placeholder="13%"
               />
 
               <VSelect
@@ -1049,12 +1049,12 @@ definePage({ meta: { permission: 'edit_product', } });
                 label="Disponibilidad"
                 :items="[
                   {
-                    id: 1,
-                    title: 'Vender sin Stock'
-                  },
-                  {
                     id: 2,
                     title: 'No Vender sin Stock'
+                  },
+                  {
+                    id: 1,
+                    title: 'Vender sin Stock'
                   }
                 ]"
                 item-title="title"

@@ -53,7 +53,7 @@ const product = ref({
   is_discount: 1,
   max_discount: 0,
   tax_selected: 1,
-  importe_iva: 18,
+  importe_iva: 13,
   disponibilidad: 1,
   state: 1,
   warranty_day: 30,
@@ -334,7 +334,7 @@ const resetForm = () => {
     is_discount: 1,
     max_discount: 0,
     tax_selected: 1,
-    importe_iva: 18,
+    importe_iva: 13,
     disponibilidad: 1,
     state: 1,
     warranty_day: 30,
@@ -868,7 +868,7 @@ definePage({ meta: { permission: 'register_product', } });
                       label="% de descuento maximo:"
                       type="number"
                       v-model="product.max_discount"
-                      placeholder="18%"
+                      placeholder="13%"
                     />
                 </div>
               </div>
@@ -909,7 +909,7 @@ definePage({ meta: { permission: 'register_product', } });
                 label="Importe IVA:"
                 type="number"
                 v-model="product.importe_iva"
-                placeholder="18%"
+                placeholder="13%"
               />
 
               <VSelect
@@ -918,11 +918,11 @@ definePage({ meta: { permission: 'register_product', } });
                 :items="[
                   {
                     id: 1,
-                    title: 'Vender sin Stock'
+                    title: 'No Vender sin Stock'
                   },
                   {
                     id: 2,
-                    title: 'No Vender sin Stock'
+                    title: 'Vender sin Stock'
                   }
                 ]"
                 item-title="title"
