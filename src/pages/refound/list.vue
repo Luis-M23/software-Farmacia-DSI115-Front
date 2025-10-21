@@ -127,7 +127,7 @@
 </script>
 <template>
     <div>
-        <VCard title="📥 Devoluciones de Productos">
+        <VCard title="Devoluciones de Productos">
             <VCardText>
                 <VRow class="">
                     <VCol cols="10">

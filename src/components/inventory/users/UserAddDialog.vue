@@ -255,10 +255,7 @@ const dialogVisibleUpdate = val => {
                 <VSelect
                     :items="[
                         'DUI',
-                        'PANISAPORTE',
-                        'PASAPORTE',
-                        'CARNET DE EXTRANJERIA',
-                        'TARJETA MILITAR'
+                        'PASAPORTE'
                     ]"
                     v-model="type_document"
                     label="Tipo de documento"
