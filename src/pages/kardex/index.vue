@@ -152,7 +152,7 @@
 <template>
     <div>
 
-        <VCard title="📒 Reporte Kardex">
+        <VCard title="Reporte Kardex de Inventario">
             <VCardText>
                 <VRow class="">
                     <VCol cols="12">
@@ -171,7 +171,7 @@
                                 :items="month_list"
                                 item-title="name"
                                 item-value="id"
-                                placeholder="Select"
+                                placeholder="Seleccionar mes"
                                 v-model="month_selected"
                                 label="Mes"
                                 />
@@ -182,7 +182,7 @@
                                     :items="warehouses"
                                     item-title="name"
                                     item-value="id"
-                                    placeholder="Select"
+                                    placeholder="Seleccionar almacén"
                                     v-model="warehouse_id"
                                     label="Almacenes"
                                 />
@@ -199,8 +199,8 @@
                                             item-title="title"
                                             item-value="id"
                                             return-object
-                                            placeholder="Search for a product"
-                                            label="¿Que agregamos?"
+                                            placeholder="Buscar producto por nombre o sku"
+                                            label="¿Que desea agregar?"
                                             variant="underlined"
                                             :menu-props="{ maxHeight: '200px' }"
                                         />

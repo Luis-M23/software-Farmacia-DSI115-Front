@@ -147,11 +147,11 @@ export default [
     icon: { icon: 'ri-file-ppt-2-line' },
     permission: 'conversions',
     to: 'conversion-list',
-  },
+  },*/
   {
     title: 'Kardex',
     to: { name: 'kardex' },
     permission: 'kardex',
     icon: { icon: 'ri-draft-line' },
-  },*/
+  },
 ]
