@@ -150,7 +150,7 @@
 
     const calcTotalTransport = () => {
         importe.value = Number(transport_details.value.reduce((sum,transport_detail) => sum + transport_detail.total,0).toFixed(2));
-        igv.value = Number((importe.value * 0.18).toFixed(2));
+        igv.value = Number((importe.value * 0.13).toFixed(2));
         total.value = Number((importe.value + igv.value).toFixed(2));
     }
 
@@ -249,11 +249,8 @@
         <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
             <div class="d-flex flex-column justify-center">
                 <h4 class="text-h4 mb-1">
-                    🚚 Add New Transport
+                    Agregar nueva Solicitud de Transporte
                 </h4>
-                <p class="text-body-1 mb-0">
-                Orders placed across your store
-                </p>
             </div>
         </div>
 
@@ -484,7 +481,7 @@
                                 </td>
                                 <td>
                                     <VTextField
-                                        label="Igv"
+                                        label="IVA"
                                         placeholder=""
                                         type="number"
                                         v-model="igv"
@@ -508,7 +505,7 @@
             </VCol>
             <VCol cols="12">
                 <VBtn block @click="store">
-                    Registrar una S. Transporte
+                    Guardar Solicitud de Transporte
                 </VBtn>
             </VCol>
         </VRow>

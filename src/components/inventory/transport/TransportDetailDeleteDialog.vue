@@ -73,7 +73,7 @@ const dialogVisibleUpdate = val => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Delete Transport Detail : {{ props.transportDetailSelected.id }}
+            Eliminar Detalle de Transporte : {{ props.transportDetailSelected.id }}
           </h4>
         </div>
 
@@ -139,7 +139,7 @@ const dialogVisibleUpdate = val => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

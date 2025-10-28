@@ -113,14 +113,14 @@
 </script>
 <template>
     <div>
-        <VCard title="🚚 Transports">
+        <VCard title="Nuevo Transporte">
             <VCardText>
                 <VRow class="">
                     <VCol cols="10">
                         <VRow>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search N° Transport"
+                                    placeholder="Buscar N° Transporte"
                                     density="compact"
                                     class="me-3"
                                     v-model="searchQuery"
@@ -132,7 +132,7 @@
                                     :items="warehouses"
                                     item-title="name"
                                     item-value="id"
-                                    placeholder="Select"
+                                    placeholder="Seleccionar"
                                     v-model="warehouse_start_id"
                                     label="Almacen de atención"
                                 />
@@ -142,7 +142,7 @@
                                     :items="warehouses"
                                     item-title="name"
                                     item-value="id"
-                                    placeholder="Select"
+                                    placeholder="Seleccionar"
                                     v-model="warehouse_end_id"
                                     label="Almacenen de entrega"
                                 />
@@ -153,7 +153,7 @@
                                 :items="units"
                                 item-title="name"
                                 item-value="id"
-                                placeholder="Select"
+                                placeholder="Seleccionar"
                                 v-model="unit_id"
                                 label="Unidades"
                                 />
@@ -170,7 +170,7 @@
                             </VCol>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search Product"
+                                    placeholder="Buscar Producto"
                                     density="compact"
                                     class="me-3"
                                     v-model="search_product"
@@ -209,7 +209,7 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn v-if="isPermission('register_transport')" @click="router.push({name: 'transport-add'})">
-                            Add Transport
+                            Nuevo Transporte
                             <VIcon
                                 end
                                 icon="ri-add-line"

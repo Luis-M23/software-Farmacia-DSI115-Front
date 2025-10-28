@@ -371,11 +371,8 @@
         <div class="d-flex flex-wrap justify-space-between gap-4 mb-6">
             <div class="d-flex flex-column justify-center">
                 <h4 class="text-h4 mb-1">
-                    🚚 Edit Transport : {{ route.params.id }}
+                    Editar Transporte : {{ route.params.id }}
                 </h4>
-                <p class="text-body-1 mb-0">
-                Orders placed across your store
-                </p>
             </div>
         </div>
 
@@ -474,7 +471,7 @@
                                             }
                                         ]"
                                         label="Estado"
-                                        placeholder="Select Almacen"
+                                        placeholder="Seleccionar Almacen"
                                         item-title="name"
                                         item-value="id"
                                         eager
@@ -522,8 +519,8 @@
                                             item-title="title"
                                             item-value="id"
                                             return-object
-                                            placeholder="Search for a product"
-                                            label="¿Que agregamos?"
+                                            placeholder="Buscar producto"
+                                            label="¿Que desea agregar?"
                                             variant="underlined"
                                             :menu-props="{ maxHeight: '200px' }"
                                         />
@@ -550,7 +547,7 @@
                                                     :items="units"
                                                     item-title="name"
                                                     item-value="id"
-                                                    placeholder="Select"
+                                                    placeholder="Seleccionar"
                                                     v-model="unit_id"
                                                     label="Unidades"
                                                 />
@@ -560,7 +557,7 @@
                                                     label="Precio"
                                                     type="number"
                                                     v-model="price_unit"
-                                                    placeholder=""
+                                                    placeholder="0.00"
                                                 />
                                             </VCol>
                                             
@@ -569,7 +566,7 @@
                                                     label="Cantidad"
                                                     type="number"
                                                     v-model="quantity"
-                                                    placeholder=""
+                                                    placeholder="0"
                                                 />
                                             </VCol>
                                         </VRow>
@@ -588,7 +585,7 @@
             <VCol cols="12">
                 <VCard
                     class="mb-6"
-                    title="Detalle de la S. Transporte"
+                    title="Detalle de la Solicitud de Transporte"
                     >
 
                     <VTable>
@@ -684,7 +681,7 @@
                                 </td>
                                 <td>
                                     <VTextField
-                                        label="Igv"
+                                        label="IVA"
                                         placeholder=""
                                         type="number"
                                         v-model="igv"
@@ -693,7 +690,7 @@
                                 <td>
                                     <VTextField
                                         label="Total"
-                                        placeholder=""
+                                        placeholder="0.00"
                                         type="number"
                                         v-model="total"
                                     />
@@ -708,7 +705,7 @@
             </VCol>
             <VCol cols="12">
                 <VBtn block @click="store">
-                    Editar una S. Transporte
+                    Editar una Solicitud de Transporte
                 </VBtn>
             </VCol>
         </VRow>

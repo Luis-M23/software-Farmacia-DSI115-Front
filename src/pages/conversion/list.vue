@@ -106,14 +106,14 @@
 </script>
 <template>
     <div>
-        <VCard title="🗂️ Conversion de unidades">
+        <VCard title="Conversión de unidades">
             <VCardText>
                 <VRow class="">
                     <VCol cols="10">
                         <VRow>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search N° Registro"
+                                    placeholder="Buscar N° Registro"
                                     density="compact"
                                     class="me-3"
                                     v-model="conversion_id"
@@ -122,7 +122,7 @@
                             </VCol>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search Product"
+                                    placeholder="Buscar Producto"
                                     density="compact"
                                     class="me-3"
                                     v-model="searchQuery"
@@ -134,7 +134,7 @@
                                     :items="warehouses"
                                     item-title="name"
                                     item-value="id"
-                                    placeholder="Select"
+                                    placeholder="Seleccionar"
                                     v-model="warehouse_id"
                                     label="Almacenes"
                                 />
@@ -144,7 +144,7 @@
                                 :items="units"
                                 item-title="name"
                                 item-value="id"
-                                placeholder="Select"
+                                placeholder="Seleccionar"
                                 v-model="unit_start_id"
                                 label="Unidad inicial"
                                 />
@@ -154,7 +154,7 @@
                                 :items="units"
                                 item-title="name"
                                 item-value="id"
-                                placeholder="Select"
+                                placeholder="Seleccionar"
                                 v-model="unit_end_id"
                                 label="Unidad final"
                                 />
@@ -165,7 +165,7 @@
                                 <AppDateTimePicker
                                     v-model="range_date"
                                     label="Rango de fecha"
-                                    placeholder="Select date"
+                                    placeholder="Seleccionar fecha"
                                     :config="{ mode: 'range' }"
                                 />
                             </VCol>
@@ -201,11 +201,7 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="openCreateConversion()">
-                            Add Conversion
-                            <VIcon
-                                end
-                                icon="ri-add-line"
-                            />
+                            Nueva Conversión
                         </VBtn>
                     </VCol>
                 </VRow>
@@ -242,7 +238,7 @@
                         Fecha de registro
                     </th>
                     <th class="text-uppercase">
-                        Action
+                        Acciones
                     </th>
                 </tr>
                </thead>

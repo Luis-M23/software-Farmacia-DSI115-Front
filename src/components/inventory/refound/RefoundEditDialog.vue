@@ -101,7 +101,7 @@ onMounted(() => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-           Editar Devolución : #{{ props.selectedRefoundProduct.id  }}
+           Editar Devolución : {{ props.selectedRefoundProduct.id }}
           </h4>
         </div>
 
@@ -121,14 +121,10 @@ onMounted(() => {
                     :items="[
                     {
                         id: 1,
-                        title: 'Reparación'
+                        title: 'Reemplazado'
                     },
                     {
                         id: 2,
-                        title: 'Remplazado'
-                    },
-                    {
-                        id: 3,
                         title: 'Devolución'
                     }
                     ]"
@@ -158,10 +154,6 @@ onMounted(() => {
                     },
                     {
                         id: 3,
-                        title: 'Reparado'
-                    },
-                    {
-                        id: 4,
                         title: 'Descartado'
                     }
                     ]"
@@ -255,7 +247,7 @@ onMounted(() => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>

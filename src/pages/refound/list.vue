@@ -134,7 +134,7 @@
                         <VRow>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search N° Venta"
+                                    placeholder="Buscar N° Venta"
                                     density="compact"
                                     class="me-3"
                                     v-model="sale_id"
@@ -143,7 +143,7 @@
                             </VCol>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search Product"
+                                    placeholder="Buscar Producto"
                                     density="compact"
                                     class="me-3"
                                     v-model="searchQuery"
@@ -152,7 +152,7 @@
                             </VCol>
                             <VCol cols="3">
                                 <VTextField
-                                    placeholder="Search Clients"
+                                    placeholder="Buscar Clientes"
                                     density="compact"
                                     class="me-3"
                                     v-model="search_client"
@@ -164,7 +164,7 @@
                                     :items="warehouses"
                                     item-title="name"
                                     item-value="id"
-                                    placeholder="Select"
+                                    placeholder="Seleccionar almacén"
                                     v-model="warehouse_id"
                                     label="Almacenes"
                                 />
@@ -174,26 +174,22 @@
                                 :items="units"
                                 item-title="name"
                                 item-value="id"
-                                placeholder="Select"
+                                placeholder="Seleccionar unidad"
                                 v-model="unit_id"
                                 label="Unidades"
                                 />
                             </VCol>
                             <VCol cols="2">
                                 <VSelect
-                                    placeholder="Select"
+                                    placeholder="Seleccionar tipo"
                                     label="Tipo"
                                     :items="[
                                     {
                                         id: 1,
-                                        title: 'Reparación'
+                                        title: 'Reemplaza'
                                     },
                                     {
                                         id: 2,
-                                        title: 'Remplazado'
-                                    },
-                                    {
-                                        id: 3,
                                         title: 'Devolución'
                                     }
                                     ]"
@@ -205,7 +201,7 @@
                             </VCol>
                             <VCol cols="2" v-if="type == 1">
                                 <VSelect
-                                    placeholder="Select"
+                                    placeholder="Seleccionar estado"
                                     label="Estado"
                                     :items="[
                                     {
@@ -218,10 +214,6 @@
                                     },
                                     {
                                         id: 3,
-                                        title: 'Reparado'
-                                    },
-                                    {
-                                        id: 4,
                                         title: 'Descartado'
                                     }
                                     ]"
@@ -271,7 +263,7 @@
                     </VCol>
                     <VCol cols="2" class="text-end">
                         <VBtn @click="openCreateRefound()">
-                            Add Refound
+                            Agregar
                             <VIcon
                                 end
                                 icon="ri-add-line"
@@ -309,7 +301,7 @@
                         Fecha de registro
                     </th>
                     <th class="text-uppercase">
-                        Action
+                        Acciones
                     </th>
                 </tr>
                </thead>

@@ -99,12 +99,12 @@ export default [
       },
     ],
   },
-  /*{
+  {
     title: 'Devolución',
     icon: { icon: 'ri-loop-right-line' },
     permission: 'return',
     to: 'refound-list',
-  },*/
+  },
   { heading: 'Compras',permissions: ['register_purchase','list_purchase','register_transport','list_transport','conversions','kardex'] },
   {
     title: 'Compras',
@@ -124,7 +124,7 @@ export default [
       },
     ],
   },
-  /*{
+  {
     title: 'Transporte',
     icon: { icon: 'ri-translate' },
     children: [
@@ -147,7 +147,7 @@ export default [
     icon: { icon: 'ri-file-ppt-2-line' },
     permission: 'conversions',
     to: 'conversion-list',
-  },*/
+  },
   {
     title: 'Kardex',
     to: { name: 'kardex' },

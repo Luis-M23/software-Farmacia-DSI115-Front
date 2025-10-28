@@ -236,7 +236,7 @@ onMounted(() => {
     @update:model-value="dialogVisibleUpdate"
   >
     <VCard class="pa-sm-11 pa-3">
-      <!-- 👉 dialog close btn -->
+      <!-- dialog close btn -->
       <DialogCloseBtn
         variant="text"
         size="default"
@@ -246,17 +246,17 @@ onMounted(() => {
       <VCardText class="pt-5">
         <div class="text-center pb-6">
           <h4 class="text-h4 mb-2">
-            Add Conversión
+            Nueva Conversión
           </h4>
         </div>
 
-        <!-- 👉 Form -->
+        <!-- Form -->
         <VForm
           class="mt-4"
           @submit.prevent="store"
         >
           <VRow>
-            <!-- 👉 First Name -->
+            <!-- First Name -->
 
             <VCol cols="6">
                 <VSelect
@@ -283,8 +283,8 @@ onMounted(() => {
                                     item-title="title"
                                     item-value="id"
                                     return-object
-                                    placeholder="Search for a product"
-                                    label="¿Que agregamos?"
+                                    placeholder="Buscar producto"
+                                    label="¿Que desea agregar?"
                                     variant="underlined"
                                     :menu-props="{ maxHeight: '200px' }"
                                 />
@@ -309,7 +309,7 @@ onMounted(() => {
                                             :items="units"
                                             item-title="name"
                                             item-value="id"
-                                            placeholder="Select"
+                                            placeholder="Seleccionar"
                                             v-model="unit_start_id"
                                             label="Unidad de inicio"
                                         />
@@ -332,7 +332,7 @@ onMounted(() => {
                                             :items="unit_conversions"
                                             item-title="name"
                                             item-value="id"
-                                            placeholder="Select"
+                                            placeholder="Seleccionar"
                                             v-model="unit_end_id"
                                             label="Unidad a convertir"
                                         />
@@ -416,7 +416,7 @@ onMounted(() => {
                 variant="outlined"
                 @click="onFormReset"
               >
-                Cancel
+                Cancelar
               </VBtn>
             </VCol>
           </VRow>
