@@ -454,6 +454,7 @@ const show = async() => {
         product.value.disponibilidad = product_selected.value.disponibilidad;
         product.value.state = product_selected.value.state;
         product.value.warranty_day = product_selected.value.warranty_day;
+        product.value.expiration_date = product_selected.value.expiration_date;
         fileData.value.push({
             file: null,
             url: product_selected.value.imagen
