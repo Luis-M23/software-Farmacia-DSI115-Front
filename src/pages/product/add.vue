@@ -57,6 +57,7 @@ const product = ref({
   disponibilidad: 1,
   state: 1,
   warranty_day: 30,
+  expiration_date: null,
 });
 
 const warehouse_stock_id = ref(null);
@@ -297,6 +298,10 @@ const store = async() => {
     formData.append("disponibilidad",product.value.disponibilidad);
     formData.append("state",product.value.state);
 
+    if (product.value.expiration_date) {
+      formData.append("expiration_date", product.value.expiration_date);
+    }
+
     const resp = await $api("products",{
       method:'POST',
       body:formData,
@@ -338,6 +343,7 @@ const resetForm = () => {
     disponibilidad: 1,
     state: 1,
     warranty_day: 30,
+    expiration_date: null,
   }
   product_wallets.value = [];
   product_warehouses.value = [];
@@ -879,7 +885,12 @@ definePage({ meta: { permission: 'register_product', } });
                 v-model="product.warranty_day"
                 placeholder="30"
               />
-
+              <VTextField
+                label="Fecha de Vencimiento:"
+                type="date"
+                v-model="product.expiration_date"
+                placeholder="Seleccionar fecha"
+              />
             </div>
           </VCardText>
         </VCard>

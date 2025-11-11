@@ -128,6 +128,9 @@
                             <th class="text-uppercase column-categoria">
                                 Categoría
                             </th>
+                            <th class="text-uppercase column-vencimiento">
+                                Vencimiento
+                            </th>
                             <!--<th class="text-uppercase column-regalo">
                                 ¿Es un regalo?
                             </th>-->
@@ -204,6 +207,13 @@
                                 </div>
                             </td>
                             
+                            <!-- Columna Vencimiento -->
+                            <td class="expiration-cell">
+                                <div class="expiration-info">
+                                    {{ item.expiration_date }}
+                                </div>
+                            </td>
+
                             <!-- Columna Regalo -->
                             <!--<td class="gift-cell">
                                 <div class="status-indicator" :class="item.is_gift == 1 ? 'no' : 'yes'">
